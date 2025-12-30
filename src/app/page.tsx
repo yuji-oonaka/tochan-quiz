@@ -3,8 +3,10 @@
 import { useEffect } from "react";
 import { useQuizStore } from "@/store/useQuizStore";
 import { AnswerButton } from "@/components/quiz/AnswerButton";
+import { RewardOverlay } from "@/components/quiz/RewardOverlay"; // 1. 追加
+import { useSound } from "@/hooks/useSound"; // 2. 追加
 
-// 動作確認用の仮データ
+// 動作確認用の仮データ（ジャンルを混ぜています）
 const mockQuestions = [
   {
     id: "1",
@@ -37,28 +39,48 @@ export default function QuizPage() {
     startQuiz,
     selectChoice,
     proceed,
+    goBack,
   } = useQuizStore();
+
+  const { playSound } = useSound(); // 3. Hookの初期化
 
   // 初回起動
   useEffect(() => {
     startQuiz(mockQuestions);
   }, [startQuiz]);
 
-  // 正誤判定後の自動進行
+  // 4. 音と自動進行の制御
   useEffect(() => {
-    if (status === "correct" || status === "incorrect") {
-      const timer = setTimeout(() => {
-        proceed();
-      }, 1500); // 1.5秒の「間」
+    if (status === "correct") {
+      playSound("correct"); // 正解音
+      const timer = setTimeout(() => proceed(), 1500);
       return () => clearTimeout(timer);
     }
-  }, [status, proceed]);
+
+    if (status === "incorrect") {
+      playSound("incorrect"); // 不正解音
+      const timer = setTimeout(() => proceed(), 1500);
+      return () => clearTimeout(timer);
+    }
+  }, [status, proceed, playSound]);
 
   const currentQuestion = questions[currentIndex];
   if (!currentQuestion) return null;
 
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col p-4">
+    <div className="min-h-screen bg-slate-50 flex flex-col p-4 relative overflow-hidden">
+      {/* ヘッダー：戻るボタン */}
+      <header className="h-12 flex items-center">
+        {currentIndex > 0 && status === "answering" && (
+          <button
+            onClick={goBack}
+            className="text-lg font-bold text-slate-400 flex items-center gap-1 active:opacity-50"
+          >
+            <span className="text-2xl">←</span> ひとつ前へ
+          </button>
+        )}
+      </header>
+
       {/* 問題表示エリア */}
       <div className="flex-1 flex items-center justify-center p-4">
         <h1 className="text-3xl sm:text-5xl font-bold text-slate-800 text-center leading-snug">
@@ -66,19 +88,24 @@ export default function QuizPage() {
         </h1>
       </div>
 
-      {/* 回答エリア（2x2グリッド） */}
+      {/* 回答エリア */}
       <div className="grid grid-cols-2 gap-4 mb-4">
         {shuffledChoices.map((choice) => (
           <AnswerButton
             key={choice.id}
             text={choice.text}
-            onClick={() => selectChoice(choice.id)}
+            onClick={() => {
+              playSound("click"); // 5. ボタン押し音
+              selectChoice(choice.id);
+            }}
             disabled={status !== "answering"}
           />
         ))}
       </div>
 
-      {/* 正解演出レイヤー */}
+      {/* 6. 各種演出レイヤー（最前面に表示） */}
+
+      {/* 正解時 */}
       {status === "correct" && (
         <div className="fixed inset-0 flex items-center justify-center bg-white/90 z-50">
           <div className="text-center">
@@ -88,7 +115,7 @@ export default function QuizPage() {
         </div>
       )}
 
-      {/* 不正解演出レイヤー */}
+      {/* 不正解時 */}
       {status === "incorrect" && (
         <div className="fixed inset-0 flex items-center justify-center bg-slate-800/90 z-50">
           <div className="text-center">
@@ -101,6 +128,9 @@ export default function QuizPage() {
           </div>
         </div>
       )}
+
+      {/* 報酬画面（10問正解時） */}
+      {status === "reward" && <RewardOverlay onNext={proceed} />}
     </div>
   );
 }
