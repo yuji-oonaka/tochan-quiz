@@ -20,8 +20,11 @@ export const metadata: Metadata = {
     title: "父ちゃんクイズ",
   },
   icons: {
-    icon: "/favicon.ico",
-    apple: "/apple-icon.png", // apple-touch-icon
+    icon: [
+      { url: "/favicon.ico" }, // 標準
+      { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" }, // ★追加
+    ],
+    apple: "/apple-icon.png",
   },
 };
 
