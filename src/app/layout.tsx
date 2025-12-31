@@ -4,9 +4,9 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "父ちゃんクイズ",
   description: "ゆっくり、たのしく学ぶ歴史と教養の百問",
-  manifest: "/manifest.json", // PWA用の設定ファイル
+  manifest: "/manifest.json",
   appleWebApp: {
-    capable: true, // ホーム画面に追加した時にアプリとして動く
+    capable: true,
     statusBarStyle: "black-translucent",
     title: "父ちゃんクイズ",
   },
@@ -15,7 +15,10 @@ export const metadata: Metadata = {
       { url: "/favicon.ico" },
       { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" },
     ],
-    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
+    // ★ apple-touch-icon.png を優先的に指定
+    apple: [
+      { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
+    ],
   },
 };
 
