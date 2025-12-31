@@ -1,26 +1,37 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f8fafc;
+  /* 少し目に優しい薄いグレーに設定 */
+  --foreground: #1e293b;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* iOS・モバイル向けの最適化設定 */
+@layer base {
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  html,
+  body {
+    /* 1. ダブルタップズームを禁止し、クリックの反応を最速(0秒)にする */
+    touch-action: manipulation;
+
+    /* 2. 長押しによる文字選択を禁止（お父様が混乱しないように） */
+    -webkit-user-select: none;
+    user-select: none;
+
+    /* 3. iPhoneの「セーフエリア（画面の端）」を考慮した余白 */
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+
+    /* 4. スクロールを禁止（画面がガタガタ動くのを防ぐ） */
+    overflow: hidden;
+
+    /* 5. 背景色とフォント */
+    background: var(--background);
+    color: var(--foreground);
+    font-family: Arial, "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", sans-serif;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ボタンが押された時のデフォルトのハイライト（青い影）を消す */
+* {
+  -webkit-tap-highlight-color: transparent;
 }

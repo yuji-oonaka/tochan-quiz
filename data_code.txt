@@ -1,0 +1,1165 @@
+--- src/data/questions/father-set-05.ts ---
+import { Question } from '@/types/quiz';
+
+export const fatherSet05: Question[] = [
+  {
+    id: "s5-41",
+    questionText: "「世界の王」こと王貞治選手が生み出した、片足で立って打つ独特な打法は何？",
+    choices: [
+      { id: "a", text: "ひしゃく投げ", isCorrect: false },
+      { id: "b", text: "一本足打法", isCorrect: true },
+      { id: "c", text: "背面跳び", isCorrect: false },
+      { id: "d", text: "千手観音打ち", isCorrect: false },
+    ],
+    explanation: "一本足でバランスをとるこの打法で、世界記録となる通算868本の本塁打を放ちました。"
+  },
+  {
+    id: "s5-42",
+    questionText: "1964年の東京五輪で金メダルを獲得し、「東洋の魔女」と呼ばれた女子競技は何？",
+    choices: [
+      { id: "a", text: "バレーボール", isCorrect: true },
+      { id: "b", text: "卓球", isCorrect: false },
+      { id: "c", text: "水泳", isCorrect: false },
+      { id: "d", text: "体操", isCorrect: false },
+    ],
+    explanation: "驚異的なレシーブ力を武器にソ連を破り、日本中に空前のバレーボールブームを巻き起こしました。"
+  },
+  {
+    id: "s5-43",
+    questionText: "プロ野球界で「ミスター・ジャイアンツ」の愛称で親しまれ、背番号3が永久欠番の選手は？",
+    choices: [
+      { id: "a", text: "金田 正一", isCorrect: false },
+      { id: "b", text: "野村 克也", isCorrect: false },
+      { id: "c", text: "長嶋 茂雄", isCorrect: true },
+      { id: "d", text: "張本 勲", isCorrect: false },
+    ],
+    explanation: "勝負強い打撃と華やかな守備で、戦後の日本を明るく照らした国民的スターです。"
+  },
+  {
+    id: "s5-44",
+    questionText: "大相撲の本場所で、力士が1場所の間に戦う日数は現在何日間？",
+    choices: [
+      { id: "a", text: "10日間", isCorrect: false },
+      { id: "b", text: "7日間", isCorrect: false },
+      { id: "c", text: "30日間", isCorrect: false },
+      { id: "d", text: "15日間", isCorrect: true },
+    ],
+    explanation: "昔は10日間でしたが、昭和24年（1949年）から現在の15日制（一月場所）になりました。"
+  },
+  {
+    id: "s5-45",
+    questionText: "1964年の東京オリンピックの開会式が行われた、記念すべき月日は？",
+    choices: [
+      { id: "a", text: "10月10日", isCorrect: true },
+      { id: "b", text: "8月15日", isCorrect: false },
+      { id: "c", text: "1月1日", isCorrect: false },
+      { id: "d", text: "4月1日", isCorrect: false },
+    ],
+    explanation: "晴天の確率が高いとして選ばれたこの日は、後に「体育の日（現在のスポーツの日）」となりました。"
+  },
+  {
+    id: "s5-46",
+    questionText: "野球で、バッターが誰もランナーがいない状態でホームランを打った場合、点数は？",
+    choices: [
+      { id: "a", text: "2点", isCorrect: false },
+      { id: "b", text: "1点", isCorrect: true },
+      { id: "c", text: "3点", isCorrect: false },
+      { id: "d", text: "4点", isCorrect: false },
+    ],
+    explanation: "打った本人だけがホームに帰るため1点。これを「ソロホームラン」と呼びます。"
+  },
+  {
+    id: "s5-47",
+    questionText: "高校野球の聖地として知られ、兵庫県西宮市にある球場の名前は何？",
+    choices: [
+      { id: "a", text: "後楽園球場", isCorrect: false },
+      { id: "b", text: "神宮球場", isCorrect: false },
+      { id: "c", text: "平和台球場", isCorrect: false },
+      { id: "d", text: "阪神甲子園球場", isCorrect: true },
+    ],
+    explanation: "大正13年（1924年）に完成した歴史ある球場で、春と夏の高校野球全国大会が行われます。"
+  },
+  {
+    id: "s5-48",
+    questionText: "ゴルフにおいて、ティーショット（1打目）が直接カップに入るプレーを何と呼ぶ？",
+    choices: [
+      { id: "a", text: "ホールインワン", isCorrect: true },
+      { id: "b", text: "ホームラン", isCorrect: false },
+      { id: "c", text: "ストライク", isCorrect: false },
+      { id: "d", text: "満貫", isCorrect: false },
+    ],
+    explanation: "プロでも一生に一度あるかないかの幸運な一打。入った後は記念品を贈る習慣などもあります。"
+  },
+  {
+    id: "s5-49",
+    questionText: "マラソンの走行距離「42.195キロメートル」。この端数がついた理由に関係している国は？",
+    choices: [
+      { id: "a", text: "アメリカ", isCorrect: false },
+      { id: "b", text: "日本", isCorrect: false },
+      { id: "c", text: "イギリス", isCorrect: true },
+      { id: "d", text: "エジプト", isCorrect: false },
+    ],
+    explanation: "1908年のロンドン大会で、王族がバルコニーから見やすいようスタート地点をずらしたのがきっかけです。"
+  },
+  {
+    id: "s5-50",
+    questionText: "水泳のメドレー競技。背泳ぎ、平泳ぎ、バタフライ、あと一つの泳ぎ方は何？",
+    choices: [
+      { id: "a", text: "犬かき", isCorrect: false },
+      { id: "b", text: "潜水", isCorrect: false },
+      { id: "c", text: "自由形", isCorrect: true },
+      { id: "d", text: "立ち泳ぎ", isCorrect: false },
+    ],
+    explanation: "個人メドレーでは「バタフライ→背→平→自由」の順で、4つの泳法を一人で泳ぎます。"
+  },
+];--- src/data/questions/father-set-09.ts ---
+import { Question } from '@/types/quiz';
+
+export const fatherSet09: Question[] = [
+  {
+    id: "f9-81",
+    questionText: "「メロン」の生産量日本一の都道府県はどこ？ 北海道の夕張（ゆうばり）も有名ですが、実は生産量では別の県が圧倒しています。",
+    choices: [
+      { id: "a", text: "静岡県", isCorrect: false },
+      { id: "b", text: "茨城県", isCorrect: true }, // 正解：b
+      { id: "c", text: "高知県", isCorrect: false },
+      { id: "d", text: "熊本県", isCorrect: false },
+    ],
+    explanation: "茨城県は水はけの良い土壌に恵まれ、20年以上連続でメロン生産量日本一を誇るメロン王国です。"
+  },
+  {
+    id: "f9-82",
+    questionText: "秋の味覚「ナシ（梨）」の生産量日本一を誇り、ふなっしーなどのキャラクターでも知られる県はどこ？",
+    choices: [
+      { id: "a", text: "鳥取県", isCorrect: false },
+      { id: "b", text: "茨城県", isCorrect: false },
+      { id: "c", text: "千葉県", isCorrect: true }, // 正解：c
+      { id: "d", text: "福島県", isCorrect: false },
+    ],
+    explanation: "千葉県は土壌や気候が梨栽培に適しており、江戸時代から続く栽培の歴史があります。"
+  },
+  {
+    id: "f9-83",
+    questionText: "マグロの「水揚げ量」で日本一を争う、焼津（やいづ）漁港がある県はどこでしょうか？",
+    choices: [
+      { id: "a", text: "静岡県", isCorrect: true }, // 正解：a
+      { id: "b", text: "高知県", isCorrect: false },
+      { id: "c", text: "青森県", isCorrect: false },
+      { id: "d", text: "和歌山県", isCorrect: false },
+    ],
+    explanation: "静岡県の焼津港は遠洋漁業の拠点として知られ、カツオやマグロの水揚げ量で日本屈指の規模です。"
+  },
+  {
+    id: "f9-84",
+    questionText: "日本で作られる「メガネのフレーム」の約9割以上を生産している、鯖江（さばえ）市がある県はどこ？",
+    choices: [
+      { id: "a", text: "富山県", isCorrect: false },
+      { id: "b", text: "石川県", isCorrect: false },
+      { id: "c", text: "山梨県", isCorrect: false },
+      { id: "d", text: "福井県", isCorrect: true }, // 正解：d
+    ],
+    explanation: "福井県鯖江市は世界三大メガネ産地の一つ。雪深い冬の副業として始まった産業が、世界的な技術に発展しました。"
+  },
+  {
+    id: "f9-85",
+    questionText: "日本ワインの生産量が最も多く、甲州（こうしゅう）ブドウを使ったワイン造りが盛んな県はどこ？",
+    choices: [
+      { id: "a", text: "長野県", isCorrect: false },
+      { id: "b", text: "山梨県", isCorrect: true }, // 正解：b
+      { id: "c", text: "北海道", isCorrect: false },
+      { id: "d", text: "山形県", isCorrect: false },
+    ],
+    explanation: "山梨県は日本ワイン発祥の地。盆地特有の気候を活かしたブドウ栽培と醸造が盛んです。"
+  },
+  {
+    id: "f9-86",
+    questionText: "高級品として知られる「有明海（ありあけかい）の海苔（のり）」の生産量が、19年連続で日本一となっている県は？",
+    choices: [
+      { id: "a", text: "佐賀県", isCorrect: true }, // 正解：a
+      { id: "b", text: "福岡県", isCorrect: false },
+      { id: "c", text: "熊本県", isCorrect: false },
+      { id: "d", text: "兵庫県", isCorrect: false },
+    ],
+    explanation: "干満の差が激しい有明海は海苔の養殖に最適で、佐賀県産は口どけの良さと香りで高く評価されています。"
+  },
+  {
+    id: "f9-87",
+    questionText: "イチゴの生産量が半世紀以上にわたり日本一で、「とちおとめ」などのブランドで有名な県はどこ？",
+    choices: [
+      { id: "a", text: "福岡県", isCorrect: false },
+      { id: "b", text: "静岡県", isCorrect: false },
+      { id: "c", text: "栃木県", isCorrect: true }, // 正解：c
+      { id: "d", text: "愛知県", isCorrect: false },
+    ],
+    explanation: "栃木県は冬の日照時間が長く、イチゴの生育に適しています。「スカイベリー」などの新品種も人気です。"
+  },
+  {
+    id: "f9-88",
+    questionText: "畳（たたみ）の原料となる「い草」の生産量が日本一で、国内シェアの約9割以上を占めている県はどこ？",
+    choices: [
+      { id: "a", text: "広島県", isCorrect: false },
+      { id: "b", text: "岡山県", isCorrect: false },
+      { id: "c", text: "福岡県", isCorrect: false },
+      { id: "d", text: "熊本県", isCorrect: true }, // 正解：d
+    ],
+    explanation: "熊本県の八代（やつしろ）平野はい草の主産地。良質な水と土壌で、丈夫で美しいい草が育ちます。"
+  },
+  {
+    id: "f9-89",
+    questionText: "高品質な「タオル」の産地として世界的に知られ、厳しい認定基準を設けている今治（いまばり）があるのは何県？",
+    choices: [
+      { id: "a", text: "愛媛県", isCorrect: true }, // 正解：a
+      { id: "b", text: "香川県", isCorrect: false },
+      { id: "c", text: "三重県", isCorrect: false },
+      { id: "d", text: "大阪府", isCorrect: false },
+    ],
+    explanation: "愛媛県今治市は、蒼社川（そうじゃがわ）の良質な軟水を使うことで、繊細で柔らかなタオルを生み出しています。"
+  },
+  {
+    id: "f9-90",
+    questionText: "リンゴの生産量が日本全体の約半分を占め、2位の長野県を大きく引き離して1位となっている県はどこ？",
+    choices: [
+      { id: "a", text: "秋田県", isCorrect: false },
+      { id: "b", text: "青森県", isCorrect: true }, // 正解：b
+      { id: "c", text: "岩手県", isCorrect: false },
+      { id: "d", text: "山形県", isCorrect: false },
+    ],
+    explanation: "青森県は明治時代からリンゴ栽培に取り組み、世界に誇る品質と生産量を維持しています。"
+  },
+];--- src/data/questions/allQuestions.ts ---
+import { fatherSet01 } from "./father-set-01";
+import { fatherSet02 } from "./father-set-02";
+import { fatherSet03 } from "./father-set-03";
+import { fatherSet04 } from "./father-set-04";
+import { fatherSet05 } from "./father-set-05";
+import { fatherSet06 } from "./father-set-06";
+import { fatherSet07 } from "./father-set-07";
+import { fatherSet08 } from "./father-set-08";
+import { fatherSet09 } from "./father-set-09";
+import { fatherSet10 } from "./father-set-10";
+
+// 全100問を1つの配列にまとめます
+export const allQuestions = [
+  ...fatherSet01,
+  ...fatherSet02,
+  ...fatherSet03,
+  ...fatherSet04,
+  ...fatherSet05,
+  ...fatherSet06,
+  ...fatherSet07,
+  ...fatherSet08,
+  ...fatherSet09,
+  ...fatherSet10,
+];--- src/data/questions/father-set-01.ts ---
+import { Question } from '@/types/quiz';
+
+export const fatherSet01: Question[] = [
+  {
+    id: "s1-1",
+    questionText: "桶狭間の戦いで、織田信長が奇襲によって打ち破った『海道一の弓取り』と称された大名は誰？",
+    choices: [
+      { id: "a", text: "今川 義元", isCorrect: true },
+      { id: "b", text: "武田 信玄", isCorrect: false },
+      { id: "c", text: "上杉 謙信", isCorrect: false },
+      { id: "d", text: "足利 義昭", isCorrect: false },
+    ],
+    explanation: "圧倒的な大軍を率いていた今川軍を、信長は豪雨の中の奇襲で破り、一躍名を上げました。"
+  },
+  {
+    id: "s1-2",
+    questionText: "豊臣秀吉が、美濃（岐阜県）を攻める拠点として短期間で築いたと言われる城の通称は？",
+    choices: [
+      { id: "a", text: "安土城", isCorrect: false },
+      { id: "b", text: "墨俣一夜城", isCorrect: true },
+      { id: "c", text: "石垣山一夜城", isCorrect: false },
+      { id: "d", text: "小田原城", isCorrect: false },
+    ],
+    explanation: "川の上流から材木を流して運び、あっという間に城を組み立てて敵を驚かせたという伝説です。"
+  },
+  {
+    id: "s1-3",
+    questionText: "武田信玄が旗印に掲げた『孫子の兵法』の一節『風林火山』。このうち『火』が意味する行動は？",
+    choices: [
+      { id: "a", text: "動かざること、火の如く", isCorrect: false },
+      { id: "b", text: "情熱を燃やすこと、火の如く", isCorrect: false },
+      { id: "c", text: "侵略すること、火の如く", isCorrect: true },
+      { id: "d", text: "敵を照らすこと、火の如く", isCorrect: false },
+    ],
+    explanation: "「疾きこと風の如く、徐かなること林の如く、侵掠（しんりゃく）すること火の如く、動かざること山の如し」の一節です。"
+  },
+  {
+    id: "s1-4",
+    questionText: "『独眼竜』の異名を持ち、仙台藩の初代藩主となった戦国武将は誰？",
+    choices: [
+      { id: "a", text: "真田 幸村", isCorrect: false },
+      { id: "b", text: "毛利 元就", isCorrect: false },
+      { id: "c", text: "島津 義弘", isCorrect: false },
+      { id: "d", text: "伊達 政宗", isCorrect: true },
+    ],
+    explanation: "幼少期に右目を失明しながらも、奥州（今の東北地方）の覇者となった知略家です。"
+  },
+  {
+    id: "s1-5",
+    questionText: "徳川家康が、豊臣家を滅ぼし天下統一を盤石なものとした『大坂の陣』。この時、冬と夏の陣の間に結ばれたのは？",
+    choices: [
+      { id: "a", text: "和議", isCorrect: true },
+      { id: "b", text: "同盟", isCorrect: false },
+      { id: "c", text: "降伏", isCorrect: false },
+      { id: "d", text: "隠居", isCorrect: false },
+    ],
+    explanation: "一度は和議を結びましたが、外堀を埋められるなどの攻防の末、再び夏の陣が勃発しました。"
+  },
+  {
+    id: "s1-6",
+    questionText: "上杉謙信が、宿敵である武田信玄の領地が塩不足で困っている時に、塩を送って助けたという逸話から生まれた言葉は？",
+    choices: [
+      { id: "a", text: "塩をまく", isCorrect: false },
+      { id: "b", text: "敵に塩を送る", isCorrect: true },
+      { id: "c", text: "手塩にかける", isCorrect: false },
+      { id: "d", text: "青菜に塩", isCorrect: false },
+    ],
+    explanation: "争っていても相手の弱みにつけこまず、苦境を救うという武士道の美談として伝わっています。"
+  },
+  {
+    id: "s1-7",
+    questionText: "『三本の矢』の教えで、一族の団結を説いたとされる、中国地方の覇者は誰？",
+    choices: [
+      { id: "a", text: "尼子 経久", isCorrect: false },
+      { id: "b", text: "宇喜多 直家", isCorrect: false },
+      { id: "c", text: "毛利 元就", isCorrect: true },
+      { id: "d", text: "大内 義隆", isCorrect: false },
+    ],
+    explanation: "一本の矢は折れやすいが、三本束ねれば折れないという教え。実際は書状で団結を説いたと言われています。"
+  },
+  {
+    id: "s1-8",
+    questionText: "織田信長が推進した、城下町の商業を自由にするための経済政策を何と呼ぶ？",
+    choices: [
+      { id: "a", text: "刀狩", isCorrect: false },
+      { id: "b", text: "検地", isCorrect: false },
+      { id: "c", text: "参勤交代", isCorrect: false },
+      { id: "d", text: "楽市・楽座", isCorrect: true },
+    ],
+    explanation: "独占的な座の特権を廃止し、誰でも商売ができるようにして街を活性化させました。"
+  },
+  {
+    id: "s1-9",
+    questionText: "明智光秀が本能寺の変の後、秀吉に敗れるまでのわずかな天下を指す言葉は？",
+    choices: [
+      { id: "a", text: "三日天下", isCorrect: true },
+      { id: "b", text: "一夜天下", isCorrect: false },
+      { id: "c", text: "一期一会", isCorrect: false },
+      { id: "d", text: "諸行無常", isCorrect: false },
+    ],
+    explanation: "山崎の戦いで秀吉に敗れるまでの約13日間という短い期間だったことからこう呼ばれます。"
+  },
+  {
+    id: "s1-10",
+    questionText: "徳川家康が幼少期、今川氏や織田氏のもとで過ごした、忍耐を強いられた時期の身分は？",
+    choices: [
+      { id: "a", text: "家老", isCorrect: false },
+      { id: "b", text: "人質", isCorrect: true },
+      { id: "c", text: "隠居", isCorrect: false },
+      { id: "d", text: "軍師", isCorrect: false },
+    ],
+    explanation: "この幼少期の苦労が、後の「鳴くまで待とう」という家康の忍耐強い性格を形成したと言われています。"
+  },
+];--- src/data/questions/father-set-03.ts ---
+import { Question } from '@/types/quiz';
+
+export const fatherSet03: Question[] = [
+  {
+    id: "k3-21",
+    questionText: "『急がば回れ』という言葉の語源となったのは、滋賀県にある何という場所を渡るルートのこと？",
+    choices: [
+      { id: "a", text: "天橋立", isCorrect: false },
+      { id: "b", text: "瀬田の唐橋（せたのからはし）", isCorrect: true },
+      { id: "c", text: "錦帯橋", isCorrect: false },
+      { id: "d", text: "日本橋", isCorrect: false },
+    ],
+    explanation: "琵琶湖を船で渡る近道よりも、遠回りでも橋（瀬田の唐橋）を渡る方が確実で安全だ、という和歌が由来です。"
+  },
+  {
+    id: "k3-22",
+    questionText: "思いがけない縁で導かれることを指す『牛に引かれて……参り』。伏せ字に入るお寺の名前は？",
+    choices: [
+      { id: "a", text: "善光寺", isCorrect: true },
+      { id: "b", text: "清水寺", isCorrect: false },
+      { id: "c", text: "成田山", isCorrect: false },
+      { id: "d", text: "金閣寺", isCorrect: false },
+    ],
+    explanation: "欲深い老婆が、牛に奪われた布を追いかけて信州の善光寺まで行き、信仰心に目覚めたという伝説からです。"
+  },
+  {
+    id: "k3-23",
+    questionText: "『風が吹けば桶屋が儲かる』という格言。風で土埃が舞い目を悪くする人が増え、その次に増えるとされた職業は？",
+    choices: [
+      { id: "a", text: "大工", isCorrect: false },
+      { id: "b", text: "医者", isCorrect: false },
+      { id: "c", text: "三味線弾き", isCorrect: true },
+      { id: "d", text: "魚屋", isCorrect: false },
+    ],
+    explanation: "三味線の皮に猫の皮が必要になり、猫が減るとネズミが増え、桶がかじられる……という風筋の通った（？）論理です。"
+  },
+  {
+    id: "k3-24",
+    questionText: "『あばたもえくぼ』という言葉。「あばた」とは、本来どのような状態を指す言葉？",
+    choices: [
+      { id: "a", text: "天然痘などの治りあとの凹み", isCorrect: true },
+      { id: "b", text: "日焼けした肌", isCorrect: false },
+      { id: "c", text: "笑った時にできるシワ", isCorrect: false },
+      { id: "d", text: "赤く腫れたニキビ", isCorrect: false },
+    ],
+    explanation: "恋をすると、相手の欠点（あばた）さえも、可愛い「えくぼ」のように見えてしまうという例えです。"
+  },
+  {
+    id: "k3-25",
+    questionText: "『能ある鷹は爪を隠す』。この言葉の本当の意味として、最も適切なものはどれ？",
+    choices: [
+      { id: "a", text: "怖がりの人ほど強がる", isCorrect: false },
+      { id: "b", text: "道具の手入れを怠らない", isCorrect: false },
+      { id: "c", text: "実力のある人ほど才能を自慢しない", isCorrect: true },
+      { id: "d", text: "チャンスが来るまで寝て待つ", isCorrect: false },
+    ],
+    explanation: "鷹が獲物を狙う際、鋭い爪を隠して油断させる様子から、本当の賢者は才をひけらかさないという意味になりました。"
+  },
+  {
+    id: "k3-26",
+    questionText: "流行歌はその時代の世相を反映している、という意味の言葉は『歌は世につれ、世は歌に……』？",
+    choices: [
+      { id: "a", text: "のれ", isCorrect: false },
+      { id: "b", text: "ふれ", isCorrect: false },
+      { id: "c", text: "つれ", isCorrect: true },
+      { id: "d", text: "まれ", isCorrect: false },
+    ],
+    explanation: "歌が世の中の変化に従うように、世の中も歌に影響されて変わっていく、という意味の名言です。"
+  },
+  {
+    id: "k3-27",
+    questionText: "『百聞は一見にしかず』。この後に続く、行動の重要性を説いた一節は、本来どれ？",
+    choices: [
+      { id: "a", text: "一見は一生の宝", isCorrect: false },
+      { id: "b", text: "一見は一考にしかず", isCorrect: true },
+      { id: "c", text: "一見は百笑にしかず", isCorrect: false },
+      { id: "d", text: "一見は一食にしかず", isCorrect: false },
+    ],
+    explanation: "見るだけでなく「考える」ことが大切で、さらにその次は「実行する」ことが大切だ、と続きます。"
+  },
+  {
+    id: "k3-28",
+    questionText: "『藪をつついて蛇を出す』と同じ意味で、余計なことをして災いを受けることを指す言葉は？",
+    choices: [
+      { id: "a", text: "火に油を注ぐ", isCorrect: false },
+      { id: "b", text: "棚からぼたもち", isCorrect: false },
+      { id: "c", text: "隣の芝生は青い", isCorrect: false },
+      { id: "d", text: "寝た子を起こす", isCorrect: true },
+    ],
+    explanation: "静かにしている状態をわざわざ乱して、自分にとって悪い結果を招くことを戒める言葉です。"
+  },
+  {
+    id: "k3-29",
+    questionText: "『後悔先に立たず』。この言葉が教えてくれる教訓は、次のうちどれ？",
+    choices: [
+      { id: "a", text: "済んだことを悔やんでも始まらない", isCorrect: true },
+      { id: "b", text: "海へ行くのは後回しにする", isCorrect: false },
+      { id: "c", text: "失敗は成功の母である", isCorrect: false },
+      { id: "d", text: "急がば回るのが良い", isCorrect: false },
+    ],
+    explanation: "事が起きてから悔やんでも遅いので、事前によく考えて行動しなさい、という教えです。"
+  },
+  {
+    id: "k3-30",
+    questionText: "『弘法も筆の誤り』と同じ意味で、名人でも失敗することがあるという意味の言葉は？",
+    choices: [
+      { id: "a", text: "まな板の上の鯉", isCorrect: false },
+      { id: "b", text: "河童（かっぱ）の川流れ", isCorrect: true },
+      { id: "c", text: "捕らぬ狸の皮算用", isCorrect: false },
+      { id: "d", text: "海老で鯛を釣る", isCorrect: false },
+    ],
+    explanation: "泳ぎの得意な河童でも流されることがあるように、どんな達人でもミスはあるものだ、という励ましの意味です。"
+  },
+];--- src/data/questions/father-set-06.ts ---
+import { Question } from '@/types/quiz';
+
+export const fatherSet06: Question[] = [
+  {
+    id: "s6-51",
+    questionText: "『日本一の兵』と称され、大坂の陣で家康を追い詰めた真田幸村。彼の軍勢が揃えた「色」は何色？",
+    choices: [
+      { id: "a", text: "漆黒", isCorrect: false },
+      { id: "b", text: "黄金", isCorrect: false },
+      { id: "c", text: "赤備", isCorrect: true }, // 正解：c
+      { id: "d", text: "純白", isCorrect: false },
+    ],
+    explanation: "武具を赤一色で統一した「赤備え」は、最強の精鋭部隊の象徴として恐れられました。"
+  },
+  {
+    id: "s6-52",
+    questionText: "上杉謙信が、自分のことを守ってくれる神様として旗印に掲げた漢字一文字は何？",
+    choices: [
+      { id: "a", text: "愛", isCorrect: false },
+      { id: "b", text: "毘", isCorrect: true }, // 正解：b
+      { id: "c", text: "風", isCorrect: false },
+      { id: "d", text: "龍", isCorrect: false },
+    ],
+    explanation: "戦いの神である「毘沙門天」を深く信仰し、自らをその化身と考えていたと言われています。"
+  },
+  {
+    id: "s6-53",
+    questionText: "武田信玄と上杉謙信が、12年間にわたって計5回も激しい戦いを繰り広げた場所の名前は？",
+    choices: [
+      { id: "a", text: "関ヶ原", isCorrect: false },
+      { id: "b", text: "壇ノ浦", isCorrect: false },
+      { id: "c", text: "箱根山", isCorrect: false },
+      { id: "d", text: "川中島", isCorrect: true }, // 正解：d
+    ],
+    explanation: "信濃（長野県）の支配権をめぐり、名将同士がぶつかり合った戦国最大のライバル対決です。"
+  },
+  {
+    id: "s6-54",
+    questionText: "織田信長の家臣で「鬼柴田（おにしばた）」と恐れられ、北陸地方の攻略を任された猛将は誰？",
+    choices: [
+      { id: "a", text: "柴田 勝家", isCorrect: true }, // 正解：a
+      { id: "b", text: "明智 光秀", isCorrect: false },
+      { id: "c", text: "竹中 半兵衛", isCorrect: false },
+      { id: "d", text: "石田 三成", isCorrect: false },
+    ],
+    explanation: "撤退戦で見せた勇猛さから「瓶割り柴田（かめわりしばた）」という異名でも知られています。"
+  },
+  {
+    id: "s6-55",
+    questionText: "伊達政宗のトレードマークである兜（かぶと）には、どのような形の飾りがついているでしょうか？",
+    choices: [
+      { id: "a", text: "大きな星", isCorrect: false },
+      { id: "b", text: "角", isCorrect: false },
+      { id: "c", text: "三日月", isCorrect: true }, // 正解：c
+      { id: "d", text: "太陽", isCorrect: false },
+    ],
+    explanation: "金色に輝く大きな三日月は、暗闇を照らす信仰の象徴として政宗が愛用したデザインです。"
+  },
+  {
+    id: "s6-56",
+    questionText: "秀吉を軍師として支え、後に「九州のキリシタン大名」としても知られた、天才的な戦略家は誰？",
+    choices: [
+      { id: "a", text: "真田 昌幸", isCorrect: false },
+      { id: "b", text: "黒田 官兵衛", isCorrect: true }, // 正解：b
+      { id: "c", text: "直江 兼続", isCorrect: false },
+      { id: "d", text: "島津 義弘", isCorrect: false },
+    ],
+    explanation: "秀吉に「次の天下を狙える男」とまで言わせた、戦国一の知恵袋と言われる人物です。"
+  },
+  {
+    id: "s6-57",
+    questionText: "家康に生涯仕え、57回の合戦で一度もかすり傷さえ負わなかったと言われる「徳川四天王」の一人は？",
+    choices: [
+      { id: "a", text: "本多 忠勝", isCorrect: true }, // 正解：a
+      { id: "b", text: "石川 数正", isCorrect: false },
+      { id: "c", text: "鳥居 元忠", isCorrect: false },
+      { id: "d", text: "大久保 彦左衛門", isCorrect: false },
+    ],
+    explanation: "大きな鹿の角がついた兜をかぶり、「蜻蛉切（とんぼぎり）」という名槍を振るった無双の猛将です。"
+  },
+  {
+    id: "s6-58",
+    questionText: "石田三成が、秀吉にその才能を認められるきっかけとなった、温度を変えて3杯の茶を出したエピソードは？",
+    choices: [
+      { id: "a", text: "三本松の茶", isCorrect: false },
+      { id: "b", text: "一夜の茶", isCorrect: false },
+      { id: "c", text: "黄金の茶室", isCorrect: false },
+      { id: "d", text: "三献茶", isCorrect: true }, // 正解：d
+    ],
+    explanation: "喉が渇いた秀吉に対し、最初はぬるく、最後は熱く出すという気配りに感銘を受けたと言われています。"
+  },
+  {
+    id: "s6-59",
+    questionText: "「鳴かぬなら、それもまたよし、ホトトギス」という、穏やかな性格を象徴する句で知られる武将は誰？",
+    choices: [
+      { id: "a", text: "豊臣 秀吉", isCorrect: false },
+      { id: "b", text: "上杉 謙信", isCorrect: true }, // 正解：b（※諸説ありますが、義を重んじる謙信らしい句として有名）
+      { id: "c", text: "武田 信玄", isCorrect: false },
+      { id: "d", text: "毛利 元就", isCorrect: false },
+    ],
+    explanation: "信長、秀吉、家康の3人の句があまりに有名なため、後世の人が謙信ならこう詠むだろうと作ったものです。"
+  },
+  {
+    id: "s6-60",
+    questionText: "北条氏の拠点であり、秀吉の天下統一の最後の壁となった、難攻不落と言われた「城」はどこ？",
+    choices: [
+      { id: "a", text: "熊本城", isCorrect: false },
+      { id: "b", text: "二条城", isCorrect: false },
+      { id: "c", text: "小田原城", isCorrect: true }, // 正解：c
+      { id: "d", text: "松本城", isCorrect: false },
+    ],
+    explanation: "町全体を大きな堀で囲んだ「総構え（そうがまえ）」という巨大な防衛システムを持っていました。"
+  },
+];--- src/data/questions/father-set-08.ts ---
+import { Question } from '@/types/quiz';
+
+export const fatherSet08: Question[] = [
+  {
+    id: "g8-71",
+    questionText: "日本で一番「長い」川は信濃川（しなのがわ）ですが、では、日本で一番「流域面積（雨が集まる範囲）」が広い川はどれ？",
+    choices: [
+      { id: "a", text: "四万十川（しまんとがわ）", isCorrect: false },
+      { id: "b", text: "利根川（とねがわ）", isCorrect: true }, // 正解：b
+      { id: "c", text: "石狩川（いしかりがわ）", isCorrect: false },
+      { id: "d", text: "最上川（もがみがわ）", isCorrect: false },
+    ],
+    explanation: "利根川は「坂東太郎」の異名を持ち、関東平野を潤す日本最大の流域面積を誇る河川です。"
+  },
+  {
+    id: "g8-72",
+    questionText: "日本にある47都道府県のうち、隣り合っている（境界線を接している）県が「8つ」と最も多い県はどこでしょうか？",
+    choices: [
+      { id: "a", text: "岐阜県", isCorrect: false },
+      { id: "b", text: "埼玉県", isCorrect: false },
+      { id: "c", text: "京都府", isCorrect: false },
+      { id: "d", text: "長野県", isCorrect: true }, // 正解：d
+    ],
+    explanation: "信州（長野県）は、群馬・山梨・静岡・愛知・岐阜・富山・新潟・埼玉の8県に囲まれています。"
+  },
+  {
+    id: "g8-73",
+    questionText: "富士山は日本で最も高い山ですが、では「日本で二番目」に高い山（標高3,193m）は、南アルプスにある何という山？",
+    choices: [
+      { id: "a", text: "北岳（きただけ）", isCorrect: true }, // 正解：a
+      { id: "b", text: "槍ヶ岳（やりがたけ）", isCorrect: false },
+      { id: "c", text: "奥穂高岳（おくほたかだけ）", isCorrect: false },
+      { id: "d", text: "阿蘇山（あそさん）", isCorrect: false },
+    ],
+    explanation: "山梨県にある北岳は、富士山に次ぐ日本第2の高峰として登山家にも人気の山です。"
+  },
+  {
+    id: "g8-74",
+    questionText: "日本で唯一、県名に「山」という漢字が入っているのに、海に全く面していない（内陸にある）県はどこでしょうか？",
+    choices: [
+      { id: "a", text: "和歌山県", isCorrect: false },
+      { id: "b", text: "山口県", isCorrect: false },
+      { id: "c", text: "山形県", isCorrect: false },
+      { id: "d", text: "山梨県", isCorrect: true }, // 正解：d
+    ],
+    explanation: "山梨は四方を高い山に囲まれた「海なし県」ですが、名産のアワビの煮貝（煮貝）など独自の食文化があります。"
+  },
+  {
+    id: "g8-75",
+    questionText: "北海道を除いた日本本土の中で、島を除いた「海岸線の長さ」が最も長いと言われる、島々が多い県はどこ？",
+    choices: [
+      { id: "a", text: "長崎県", isCorrect: true }, // 正解：a
+      { id: "b", text: "千葉県", isCorrect: false },
+      { id: "c", text: "高知県", isCorrect: false },
+      { id: "d", text: "岩手県", isCorrect: false },
+    ],
+    explanation: "長崎県は五島列島や九十九島など、非常に多くの島や入り組んだリアス海岸を持つため、海岸線が極めて長くなっています。"
+  },
+  {
+    id: "g8-76",
+    questionText: "本州・四国・九州・北海道の主要な4つの島を除いて、日本で「一番面積が大きい島」はどこでしょうか？",
+    choices: [
+      { id: "a", text: "淡路島（あわじしま）", isCorrect: false },
+      { id: "b", text: "屋久島（やくしま）", isCorrect: false },
+      { id: "c", text: "佐渡島（さどがしま）", isCorrect: true }, // 正解：c
+      { id: "d", text: "隠岐諸島（おきしょとう）", isCorrect: false },
+    ],
+    explanation: "新潟県の佐渡島は、東京23区の約1.5倍もの面積があり、かつては金山でも栄えました。"
+  },
+  {
+    id: "g8-77",
+    questionText: "東北地方にある日本最大の火山湖「十和田湖（とわだこ）」。この湖の真ん中を県境が通っている、2つの県はどこ？",
+    choices: [
+      { id: "a", text: "山形県と秋田県", isCorrect: false },
+      { id: "b", text: "岩手県と宮城県", isCorrect: false },
+      { id: "c", text: "福島県と山形県", isCorrect: false },
+      { id: "d", text: "青森県と秋田県", isCorrect: true }, // 正解：d
+    ],
+    explanation: "青森と秋田の県境に位置しており、長年境界が未確定でしたが、2008年にようやく正式に決まりました。"
+  },
+  {
+    id: "g8-78",
+    questionText: "日本全国で唯一、都道府県名に「岡」という漢字が使われていない「地方」は、次のうちどれでしょうか？",
+    choices: [
+      { id: "a", text: "四国地方", isCorrect: true }, // 正解：a（愛媛・香川・徳島・高知）
+      { id: "b", text: "九州地方", isCorrect: false }, // 福岡
+      { id: "c", text: "中部地方", isCorrect: false }, // 静岡
+      { id: "d", text: "近畿地方", isCorrect: false }, // 和歌山
+    ],
+    explanation: "静岡、岡山、福岡など、名前に「岡」がつく県は多いですが、四国4県には一つも含まれていません。"
+  },
+  {
+    id: "g8-79",
+    questionText: "日本で最も高い場所にある駅「野辺山（のべやま）駅」がある、八ヶ岳（やつがたけ）山麓の高原がある県はどこ？",
+    choices: [
+      { id: "a", text: "群馬県", isCorrect: false },
+      { id: "b", text: "長野県", isCorrect: true }, // 正解：b
+      { id: "c", text: "岐阜県", isCorrect: false },
+      { id: "d", text: "山梨県", isCorrect: false },
+    ],
+    explanation: "JR小海線の野辺山駅は標高1,345mに位置し、JR線の中で最も高い場所にある駅として有名です。"
+  },
+  {
+    id: "g8-80",
+    questionText: "日本の最西端に位置し、天気が良ければ台湾が見えることもある「与那国島（よなぐにじま）」は何県？",
+    choices: [
+      { id: "a", text: "沖縄県", isCorrect: true }, // 正解：a
+      { id: "b", text: "鹿児島県", isCorrect: false },
+      { id: "c", text: "長崎県", isCorrect: false },
+      { id: "d", text: "東京都", isCorrect: false },
+    ],
+    explanation: "日本の西の果て、沖縄県八重山諸島にあり、美しい海と力強い自然が残る島です。"
+  },
+];--- src/data/questions/father-set-04.ts ---
+import { Question } from '@/types/quiz';
+
+export const fatherSet04: Question[] = [
+  {
+    id: "f4-31",
+    questionText: "香川県が「うどん県」なのは、ある3つの材料が揃っていたからです。塩、醤油、あと一つは何？",
+    choices: [
+      { id: "a", text: "小麦", isCorrect: true },
+      { id: "b", text: "蕎麦", isCorrect: false },
+      { id: "c", text: "お米", isCorrect: false },
+      { id: "d", text: "トウモロコシ", isCorrect: false },
+    ],
+    explanation: "雨が少なく米作りに向かない香川では、小麦の栽培が盛んでした。そこに瀬戸内の塩と醤油が加わりました。"
+  },
+  {
+    id: "f4-32",
+    questionText: "静岡県の牧之原が茶産地になったのは、幕末にある人々が茶園を開拓したからです。誰？",
+    choices: [
+      { id: "a", text: "近江の商人たち", isCorrect: false },
+      { id: "b", text: "徳川家に仕えた武士たち", isCorrect: true },
+      { id: "c", text: "海外からの宣教師", isCorrect: false },
+      { id: "d", text: "地元の漁師たち", isCorrect: false },
+    ],
+    explanation: "明治維新で職を失った徳川の旧臣たちが、刀を鍬に持ち替えて荒野を切り拓き、大茶園を築き上げました。"
+  },
+  {
+    id: "f4-33",
+    questionText: "愛媛のみかん栽培で重要な「3つの太陽」。空からの光、海からの反射光、あと一つは？",
+    choices: [
+      { id: "a", text: "月の光", isCorrect: false },
+      { id: "b", text: "電灯", isCorrect: false },
+      { id: "c", text: "石垣からの反射光", isCorrect: true },
+      { id: "d", text: "ヘッドライト", isCorrect: false },
+    ],
+    explanation: "急斜面の段々畑にある石垣が太陽の熱を蓄え、光を反射することで、みかんがより甘く育ちます。"
+  },
+  {
+    id: "f4-34",
+    questionText: "京都の「にしんそば」。海から遠い京都で、なぜ北海道産のニシンが名物になった？",
+    choices: [
+      { id: "a", text: "京都の川で獲れた", isCorrect: false },
+      { id: "b", text: "氷で冷やして運んだ", isCorrect: false },
+      { id: "c", text: "空飛ぶ船で運んだ", isCorrect: false },
+      { id: "d", text: "干物にして運んだから", isCorrect: true },
+    ],
+    explanation: "昔は輸送に時間がかかったため、北海道で獲れたニシンを乾燥させて日持ちするようにして運びました。"
+  },
+  {
+    id: "f4-35",
+    questionText: "江戸前寿司（えどまえずし）の「江戸前」とは、本来どのような意味？",
+    choices: [
+      { id: "a", text: "江戸の目の前の海で獲れた", isCorrect: true },
+      { id: "b", text: "江戸時代より前に生まれた", isCorrect: false },
+      { id: "c", text: "将軍様より前に食べた", isCorrect: false },
+      { id: "d", text: "お店の前に並んで食べた", isCorrect: false },
+    ],
+    explanation: "当時は東京湾（江戸の目の前の海）で獲れた新鮮な魚を使うことが「江戸前」の誇りでした。"
+  },
+  {
+    id: "f4-36",
+    questionText: "伊勢神宮で親しまれる「伊勢うどん」。非常に太くて柔らかいのが特徴ですが、なぜ？",
+    choices: [
+      { id: "a", text: "茹でる時間を間違えた", isCorrect: false },
+      { id: "b", text: "長旅の参拝客の胃に優しくするため", isCorrect: true },
+      { id: "c", text: "技術がなかった", isCorrect: false },
+      { id: "d", text: "箸で切りやすくするため", isCorrect: false },
+    ],
+    explanation: "全国から歩いてやってくる参拝客の疲れを癒やすため、消化が良く、すぐに提供できる柔らかい麺になりました。"
+  },
+  {
+    id: "f4-37",
+    questionText: "秋田県の名物「きりたんぽ」。元々はどのような人たちが食べていたのが始まり？",
+    choices: [
+      { id: "a", text: "海で働く海女さん", isCorrect: false },
+      { id: "b", text: "お城の殿様", isCorrect: false },
+      { id: "c", text: "山で働くマタギ", isCorrect: true },
+      { id: "d", text: "寺の修行僧", isCorrect: false },
+    ],
+    explanation: "厳しい寒さの中、山に入るマタギたちが携行食としてご飯を潰して棒に刺し、鍋に入れて食べたのが始まりです。"
+  },
+  {
+    id: "f4-38",
+    questionText: "「わさび」が美味しく育つために、最も欠かせない自然条件は何？",
+    choices: [
+      { id: "a", text: "一年中降り続く雨", isCorrect: false },
+      { id: "b", text: "強い日差し", isCorrect: false },
+      { id: "c", text: "たっぷりの肥料", isCorrect: false },
+      { id: "d", text: "きれいで冷たい「流れる水」", isCorrect: true },
+    ],
+    explanation: "わさびはデリケートな植物で、酸素をたっぷり含んだ清らかな湧き水が常に流れている場所で育ちます。"
+  },
+  {
+    id: "f4-39",
+    questionText: "富山県の名産「ます寿司」。器の中に、魚の身と一緒に敷き詰められている葉っぱは何？",
+    choices: [
+      { id: "a", text: "熊笹", isCorrect: true },
+      { id: "b", text: "桜の葉", isCorrect: false },
+      { id: "c", text: "蓮の葉", isCorrect: false },
+      { id: "d", text: "銀杏の葉", isCorrect: false },
+    ],
+    explanation: "笹には殺菌作用があるため保存食の役割を果たし、さらに爽やかな香りを寿司に移してくれます。"
+  },
+  {
+    id: "f4-40",
+    questionText: "名古屋の名物「ひつまぶし」。最後の一杯は、どのような食べ方をするのが一般的？",
+    choices: [
+      { id: "a", text: "マヨネーズをかける", isCorrect: false },
+      { id: "b", text: "お茶や出汁をかける", isCorrect: true },
+      { id: "c", text: "ご飯だけ残す", isCorrect: false },
+      { id: "d", text: "一口で全部食べる", isCorrect: false },
+    ],
+    explanation: "一杯目はそのまま、二杯目は薬味で、三杯目はお茶漬けにするのが、贅沢な楽しみ方です。"
+  },
+];--- src/data/questions/father-set-07.ts ---
+import { Question } from '@/types/quiz';
+
+export const fatherSet07: Question[] = [
+  {
+    id: "h7-61",
+    questionText: "北海道や東北地方で、冬の厳しい寒さを指して「しばれるねぇ」と言います。この「しばれる」とはどういう状態？",
+    choices: [
+      { id: "a", text: "風が強い", isCorrect: false },
+      { id: "b", text: "雪が降り続く", isCorrect: false },
+      { id: "c", text: "凍りつくほど寒い", isCorrect: true }, // 正解：c
+      { id: "d", text: "空気が乾燥している", isCorrect: false },
+    ],
+    explanation: "ただ寒いだけでなく、氷点下になって身が引き締まるような、刺すような寒さを表現する言葉です。"
+  },
+  {
+    id: "h7-62",
+    questionText: "大阪を中心とした関西地方で、商売の調子を聞かれた際に「ぼちぼちでんな」と答えます。これはどういう意味？",
+  　choices: [
+      { id: "a", text: "絶好調で儲かっている", isCorrect: false },
+      { id: "b", text: "まずまず、悪くない", isCorrect: true }, // 正解：b
+      { id: "c", text: "倒産しそうで大変だ", isCorrect: false },
+      { id: "d", text: "忙しくて目が回る", isCorrect: false },
+    ],
+    explanation: "「最高ではないけれど、おかげさまで何とかやっています」という、角を立てない謙虚な挨拶ですね。"
+  },
+  {
+    id: "h7-63",
+    questionText: "東北地方などで、可愛らしい子供や孫を指して「めんこい」と言います。この言葉の由来となった標準語はどれ？",
+    choices: [
+      { id: "a", text: "愛（め）でたい", isCorrect: false },
+      { id: "b", text: "珍しい", isCorrect: false },
+      { id: "c", text: "面白い", isCorrect: false },
+      { id: "d", text: "愛（め）づ", isCorrect: true }, // 正解：d
+    ],
+    explanation: "「愛でる（賞賛する）」という古い言葉が変化したもの。心から「可愛い」と思う気持ちが詰まっています。"
+  },
+  {
+    id: "h7-64",
+    questionText: "沖縄県で、空港や観光地でよく目にする「めんそーれ」という言葉。これはどのような意味の挨拶？",
+    choices: [
+      { id: "a", text: "いらっしゃいませ", isCorrect: true }, // 正解：a
+      { id: "b", text: "さようなら", isCorrect: false },
+      { id: "c", text: "お腹が空いた", isCorrect: false },
+      { id: "d", text: "天気が良いですね", isCorrect: false },
+    ],
+    explanation: "「参りなさい」という意味の「参り候え（めりそうれ）」が変化して、歓迎の挨拶になりました。"
+  },
+  {
+    id: "h7-65",
+    questionText: "名古屋周辺で「でら（どら）凄（すご）い」と言えば、「凄く凄い」という意味になります。この「でら」の語源は何？",
+    choices: [
+      { id: "a", text: "寺（てら）", isCorrect: false },
+      { id: "b", text: "泥（どろ）", isCorrect: false },
+      { id: "c", text: "どえりゃあ（ど偉い）", isCorrect: true }, // 正解：c
+      { id: "d", text: "デラックス", isCorrect: false },
+    ],
+    explanation: "「偉い（すごい）」に強調の「ど」がついた「どえらい」が、さらに変化して「でら」になりました。"
+  },
+  {
+    id: "h7-66",
+    questionText: "高知県（土佐弁）で、坂本龍馬のセリフとしても有名な「〜ぜよ」。これは標準語に直すとどういう意味？",
+    choices: [
+      { id: "a", text: "〜ですよ（丁寧）", isCorrect: false },
+      { id: "b", text: "〜だぞ（断定）", isCorrect: true }, // 正解：b
+      { id: "c", text: "〜ですか？（疑問）", isCorrect: false },
+      { id: "d", text: "〜かもしれない", isCorrect: false },
+    ],
+    explanation: "自分の意志を強く伝えたり、相手に言い聞かせたりする時に使われる、力強い語尾です。"
+  },
+  {
+    id: "h7-67",
+    questionText: "福岡県などの九州地方で使われる「〜ばってん」。文章のつなぎに使われますが、どういう意味？",
+    choices: [
+      { id: "a", text: "そして", isCorrect: false },
+      { id: "b", text: "だから", isCorrect: false },
+      { id: "c", text: "もしも", isCorrect: false },
+      { id: "d", text: "だけれども", isCorrect: true }, // 正解：d
+    ],
+    explanation: "「〜だけれども」という意味。「ばってん、そりゃあなかろう（だけど、それはないだろう）」のように使います。"
+  },
+  {
+    id: "h7-68",
+    questionText: "広島県周辺で使われる「〜じゃけぇ」。これは次のうち、どの言葉が変化したもの？",
+    choices: [
+      { id: "a", text: "〜だから（理由）", isCorrect: true }, // 正解：a
+      { id: "b", text: "〜ではない（否定）", isCorrect: false },
+      { id: "c", text: "〜したい（希望）", isCorrect: false },
+      { id: "d", text: "〜ですよ（挨拶）", isCorrect: false },
+    ],
+    explanation: "「〜であるから」という意味。「好きなんじゃけぇ（好きなんだから）」のように、理由や根拠を添える言葉です。"
+  },
+  {
+    id: "h7-69",
+    questionText: "江戸っ子が使っていたと言われる「〜でございます」の古風な形、「〜でごんす」。本来はどこの言葉とされている？",
+    choices: [
+      { id: "a", text: "江戸（東京）", isCorrect: false },
+      { id: "b", text: "京都", isCorrect: false },
+      { id: "c", text: "山形などの東北地方", isCorrect: true }, // 正解：c
+      { id: "d", text: "長崎", isCorrect: false },
+    ],
+    explanation: "実は東北地方などで丁寧語として使われていた言葉が、江戸の職人たちの間で広まったという説があります。"
+  },
+  {
+    id: "h7-70",
+    questionText: "京都で「おいでやす」と「おこしやす」と言われたら、どちらの方が「より丁寧で歓迎されている」と感じるべき？",
+    choices: [
+      { id: "a", text: "おいでやす", isCorrect: false },
+      { id: "b", text: "おこしやす", isCorrect: true }, // 正解：b
+      { id: "c", text: "どちらも全く同じ", isCorrect: false },
+      { id: "d", text: "時間帯によって違う", isCorrect: false },
+    ],
+    explanation: "「おこしやす」は、遠路はるばる山を越えて来てくれた（お越しいただいた）人への、より深い敬意が込められています。"
+  },
+];--- src/data/questions/father-set-10.ts ---
+import { Question } from '@/types/quiz';
+
+export const fatherSet10: Question[] = [
+  {
+    id: "s10-91",
+    questionText: "慶長5年（1600年）、天下分け目の「関ヶ原の戦い」が実際にわずか半日ほどで決着がついたとされる、その月日は？",
+    choices: [
+      { id: "a", text: "1月1日", isCorrect: false },
+      { id: "b", text: "8月15日", isCorrect: false },
+      { id: "c", text: "12月25日", isCorrect: false },
+      { id: "d", text: "9月15日", isCorrect: true }, // 正解：d
+    ],
+    explanation: "旧暦の9月15日。朝から始まった戦いは、小早川秀秋の寝返りなどもあり、午後には東軍の勝利が決まっていました。"
+  },
+  {
+    id: "s10-92",
+    questionText: "1603年、徳川家康が朝廷から任命され、江戸幕府を正式に開いた際に授かった官職の名前は何？",
+    choices: [
+      { id: "a", text: "征夷大将軍", isCorrect: true }, // 正解：a
+      { id: "b", text: "関白", isCorrect: false },
+      { id: "c", text: "太政大臣", isCorrect: false },
+      { id: "d", text: "執権", isCorrect: false },
+    ],
+    explanation: "源頼朝以来、武士の頂点を示すこの職に就くことで、家康は名実ともに天下の主となりました。"
+  },
+  {
+    id: "s10-93",
+    questionText: "三代将軍・徳川家光が確立した、諸大名に江戸と領地を一年おきに行き来させた制度を何と呼ぶ？",
+    choices: [
+      { id: "a", text: "刀狩", isCorrect: false },
+      { id: "b", text: "検地", isCorrect: false },
+      { id: "c", text: "参勤交代", isCorrect: true }, // 正解：c
+      { id: "d", text: "楽市・楽座", isCorrect: false },
+    ],
+    explanation: "大名に多額の費用を使わせ、家族を人質として江戸に置くことで、反乱を防ぎ幕府の権威を保ちました。"
+  },
+  {
+    id: "s10-94",
+    questionText: "鎖国（さこく）下の日本において、唯一オランダや中国との貿易が許されていた、長崎にある人工の島はどこ？",
+    choices: [
+      { id: "a", text: "淡路島", isCorrect: false },
+      { id: "b", text: "出島", isCorrect: true }, // 正解：b
+      { id: "c", text: "佐渡島", isCorrect: false },
+      { id: "d", text: "軍艦島", isCorrect: false },
+    ],
+    explanation: "扇型の小さな島「出島」を通じて、西洋の医学や科学（蘭学）などの新しい知識が日本に入ってきました。"
+  },
+  {
+    id: "s10-95",
+    questionText: "大坂の陣において、真田幸村（信繁）が徳川軍を迎え撃つために大坂城の南側に築いた出城の通称は？",
+    choices: [
+      { id: "a", text: "一夜城", isCorrect: false },
+      { id: "b", text: "伏見城", isCorrect: false },
+      { id: "c", text: "五稜郭", isCorrect: false },
+      { id: "d", text: "真田丸", isCorrect: true }, // 正解：d
+    ],
+    explanation: "鉄砲隊を配したこの要塞で、幸村は徳川の大軍を翻弄し、その武名を後世にまで残しました。"
+  },
+  {
+    id: "s10-96",
+    questionText: "徳川家康を「東照大権現（とうしょうだいごんげん）」という神として祀っている、栃木県にある豪華絢爛な神社は？",
+    choices: [
+      { id: "a", text: "日光東照宮", isCorrect: true }, // 正解：a
+      { id: "b", text: "出雲大社", isCorrect: false },
+      { id: "c", text: "伊勢神宮", isCorrect: false },
+      { id: "d", text: "靖国神社", isCorrect: false },
+    ],
+    explanation: "「見ざる・言わざる・聞かざる」の彫刻でも有名。家康は死後、神となって江戸の平和を見守るとされました。"
+  },
+  {
+    id: "s10-97",
+    questionText: "江戸時代、葛飾北斎（かつしかほくさい）らが描いた、庶民の暮らしや風景を題材にした鮮やかな多色刷りの版画は？",
+    choices: [
+      { id: "a", text: "水墨画", isCorrect: false },
+      { id: "b", text: "油絵", isCorrect: false },
+      { id: "c", text: "浮世絵", isCorrect: true }, // 正解：c
+      { id: "d", text: "壁画", isCorrect: false },
+    ],
+    explanation: "『富嶽三十六景』などは海外の芸術家にも大きな影響を与え、今も世界中で高く評価されています。"
+  },
+  {
+    id: "s10-98",
+    questionText: "江戸時代末期、九州で起きたキリシタン弾圧に対する大規模な一揆「島根・天草一揆」で、総大将となった少年は誰？",
+    choices: [
+      { id: "a", text: "一休さん", isCorrect: false },
+      { id: "b", text: "天草 四郎", isCorrect: true }, // 正解：b
+      { id: "c", text: "源 義経", isCorrect: false },
+      { id: "d", text: "宮本 武蔵", isCorrect: false },
+    ],
+    explanation: "わずか16歳ほどで数万人の民衆を率いたと言われ、多くの伝説に包まれた悲劇のリーダーです。"
+  },
+  {
+    id: "s10-99",
+    questionText: "1867年、15代将軍・徳川慶喜（よしのぶ）が政権を朝廷に返上し、江戸幕府の終焉を告げた出来事を何と呼ぶ？",
+    choices: [
+      { id: "a", text: "文明開化", isCorrect: false },
+      { id: "b", text: "廃藩置県", isCorrect: false },
+      { id: "c", text: "明治維新", isCorrect: false },
+      { id: "d", text: "大政奉還", isCorrect: true }, // 正解：d
+    ],
+    explanation: "この英断により、260年余り続いた徳川の世が終わり、日本は近代国家へと歩み始めました。"
+  },
+  {
+    id: "s10-100",
+    questionText: "【最終問題】徳川家康が開き、幕末まで続いた江戸時代の平和な期間は、おおよそ「何年間」でしょうか？",
+    choices: [
+      { id: "a", text: "約260年間", isCorrect: true }, // 正解：a
+      { id: "b", text: "約100年間", isCorrect: false },
+      { id: "c", text: "約500年間", isCorrect: false },
+      { id: "d", text: "約10年間", isCorrect: false },
+    ],
+    explanation: "1603年から1867年まで。世界史的にも稀な、大きな戦争のない平和な文化が花開いた時代でした。全100問達成、お疲れ様でした！"
+  },
+];--- src/data/questions/father-set-02.ts ---
+import { Question } from '@/types/quiz';
+
+export const fatherSet02: Question[] = [
+  {
+    id: "g2-11",
+    questionText: "本州の中で、太平洋と日本海の両方に直接面している県はどこ？",
+    choices: [
+      { id: "a", text: "岡山県", isCorrect: false },
+      { id: "b", text: "兵庫県", isCorrect: true },
+      { id: "c", text: "鳥取県", isCorrect: false },
+      { id: "d", text: "滋賀県", isCorrect: false },
+    ],
+    explanation: "兵庫県は、北は日本海、南は瀬戸内海（太平洋側）に面している、本州で数少ない県の一つです。"
+  },
+  {
+    id: "g2-12",
+    questionText: "関東地方にある県のうち、海に全く面していない「海なし県」は、栃木・群馬とあと一つはどこ？",
+    choices: [
+      { id: "a", text: "埼玉県", isCorrect: true },
+      { id: "b", text: "千葉県", isCorrect: false },
+      { id: "c", text: "茨城県", isCorrect: false },
+      { id: "d", text: "神奈川県", isCorrect: false },
+    ],
+    explanation: "埼玉・栃木・群馬の3県は、関東の中でも海に面していない内陸の県です。"
+  },
+  {
+    id: "g2-13",
+    questionText: "四国四県のうち、唯一「瀬戸内海」に面していない、南側に位置する県はどこ？",
+    choices: [
+      { id: "a", text: "徳島県", isCorrect: false },
+      { id: "b", text: "愛媛県", isCorrect: false },
+      { id: "c", text: "高知県", isCorrect: true },
+      { id: "d", text: "香川県", isCorrect: false },
+    ],
+    explanation: "高知県は南側の太平洋に広く面しており、四国山地を挟んで瀬戸内海とは反対側に位置しています。"
+  },
+  {
+    id: "g2-14",
+    questionText: "九州地方の中で、一番面積が「小さい」県はどこでしょうか？",
+    choices: [
+      { id: "a", text: "長崎県", isCorrect: false },
+      { id: "b", text: "大分県", isCorrect: false },
+      { id: "c", text: "福岡県", isCorrect: false },
+      { id: "d", text: "佐賀県", isCorrect: true },
+    ],
+    explanation: "九州で最も面積が広いのは鹿児島県ですが、最も小さいのは有明海に面した佐賀県です。"
+  },
+  {
+    id: "g2-15",
+    questionText: "隣り合う「島根県」と「鳥取県」。このうち、地図上で見て「西側（山口県寄り）」にあるのはどっち？",
+    choices: [
+      { id: "a", text: "鳥取県", isCorrect: false },
+      { id: "b", text: "島根県", isCorrect: true },
+      { id: "c", text: "山口県", isCorrect: false },
+      { id: "d", text: "広島県", isCorrect: false },
+    ],
+    explanation: "西から「島根」「鳥取」の順に並んでいます。「ね・と（島根・鳥取）」と覚えるのが有名です。"
+  },
+  {
+    id: "g2-16",
+    questionText: "東北地方の中で、最も面積が広く、四国4県がまるごと入ってしまうほどの広さを持つ県は？",
+    choices: [
+      { id: "a", text: "岩手県", isCorrect: true },
+      { id: "b", text: "青森県", isCorrect: false },
+      { id: "c", text: "秋田県", isCorrect: false },
+      { id: "d", text: "山形県", isCorrect: false },
+    ],
+    explanation: "岩手県は日本の都道府県で北海道に次いで2番目に広く、本州では最大の面積を誇ります。"
+  },
+  {
+    id: "g2-17",
+    questionText: "日本の標準時の基準となる「東経135度」の線が通る、明石市がある県は？",
+    choices: [
+      { id: "a", text: "大阪府", isCorrect: false },
+      { id: "b", text: "京都府", isCorrect: false },
+      { id: "c", text: "兵庫県", isCorrect: true },
+      { id: "d", text: "奈良県", isCorrect: false },
+    ],
+    explanation: "明石市にある天文科学館の真上を、日本の時間の基準となる経線が通っています。"
+  },
+  {
+    id: "g2-18",
+    questionText: "富士山の「南側」に位置し、駿河湾に面している県はどこ？",
+    choices: [
+      { id: "a", text: "山梨県", isCorrect: false },
+      { id: "b", text: "静岡県", isCorrect: true },
+      { id: "c", text: "長野県", isCorrect: false },
+      { id: "d", text: "神奈川県", isCorrect: false },
+    ],
+    explanation: "富士山を挟んで、北側が山梨県、南側が静岡県となります。海がある方が静岡県です。"
+  },
+  {
+    id: "g2-19",
+    questionText: "世界一長い吊り橋「明石海峡大橋」を渡って、本州（神戸市）から最初に行くことができる島はどこ？",
+    choices: [
+      { id: "a", text: "小豆島", isCorrect: false },
+      { id: "b", text: "佐渡島", isCorrect: false },
+      { id: "c", text: "隠岐諸島", isCorrect: false },
+      { id: "d", text: "淡路島", isCorrect: true },
+    ],
+    explanation: "神戸と淡路島を結んでいるのが明石海峡大橋で、その先は大鳴門橋を通って四国へ繋がっています。"
+  },
+  {
+    id: "g2-20",
+    questionText: "次のうち、日本で唯一「3つの海（日本海・太平洋・津軽海峡）」に面している県はどこ？",
+    choices: [
+      { id: "a", text: "青森県", isCorrect: true },
+      { id: "b", text: "北海道", isCorrect: false },
+      { id: "c", text: "秋田県", isCorrect: false },
+      { id: "d", text: "岩手県", isCorrect: false },
+    ],
+    explanation: "青森県は東に太平洋、西に日本海、そして北に津軽海峡と、3つの異なる海に囲まれています。"
+  },
+];

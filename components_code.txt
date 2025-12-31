@@ -1,0 +1,429 @@
+--- src/components/quiz/AnswerButton.tsx ---
+"use client";
+
+export const AnswerButton = ({
+  text,
+  onClick,
+  disabled,
+}: {
+  text: string;
+  onClick: () => void;
+  disabled?: boolean;
+}) => {
+  return (
+    <div className="relative w-full">
+      {/* ボタン本体 */}
+      <button
+        onClick={onClick}
+        disabled={disabled}
+        className="
+          w-full min-h-28 p-4
+          /* 藍色の背景 */
+          bg-[#1e3a8a]
+          /* 落ち着いた文字色 */
+          text-[#fdfbf7]
+          text-2xl font-black
+          rounded-4xl
+          
+          /* --- 立体感の演出 --- */
+          /* 1. 通常時の厚み（濃い藍色の影） */
+          shadow-[0_8px_0_rgb(12,28,68)]
+          border-t border-white/10
+          
+          /* 2. 押した瞬間の挙動 */
+          /* 4px下に沈み込み、厚みを半分にする */
+          active:translate-y-1
+          active:shadow-[0_4px_0_rgb(12,28,68)]
+          
+          /* 3. 反応の速さ */
+          transition-all duration-75
+          
+          flex items-center justify-center text-center
+          disabled:opacity-50 disabled:translate-y-0 disabled:shadow-none
+        "
+      >
+        <span className="leading-tight">{text}</span>
+      </button>
+    </div>
+  );
+};
+--- src/components/quiz/RewardOverlay.tsx ---
+"use client";
+
+import Image from "next/image";
+import { useQuizStore } from "@/store/useQuizStore";
+
+export const RewardOverlay = ({ onNext }: { onNext: () => void }) => {
+  const { solvedCount } = useQuizStore();
+
+  // 【修正】安全なインデックス計算
+  // 10問正解時：(10-1)/10 = 0.9 → floorで 0 (L0)
+  // 100問正解時：(100-1)/10 = 9.9 → floorで 9 (L9)
+  const imageIndex = Math.min(Math.floor((solvedCount - 1) / 10), 9);
+
+  const imagePath = `/images/rewards/set1/L${imageIndex}.png`;
+
+  return (
+    <div className="fixed inset-0 bg-white z-60 flex flex-col items-center justify-center p-6 text-center">
+      <h2 className="text-4xl font-bold text-blue-600 mb-6">
+        {solvedCount}問正解！
+      </h2>
+
+      <div className="relative w-full max-w-sm aspect-9/16 shadow-2xl rounded-2xl overflow-hidden mb-8">
+        <Image src={imagePath} alt="ご褒美画像" fill className="object-cover" />
+      </div>
+
+      <button
+        onClick={onNext}
+        className="px-16 py-6 bg-blue-600 text-white text-3xl font-bold rounded-full shadow-xl active:scale-95 transition-transform"
+      >
+        次の問題へ
+      </button>
+    </div>
+  );
+};
+--- src/components/quiz/TopView.tsx ---
+"use client";
+
+import { useEffect, useState } from "react";
+import Image from "next/image";
+import { useQuizStore } from "@/store/useQuizStore";
+import { useSound } from "@/hooks/useSound";
+
+interface TopViewProps {
+  isServerRendering?: boolean;
+}
+
+export const TopView = ({ isServerRendering = false }: TopViewProps) => {
+  const { currentIndex, isSoundOn, toggleSound, initQuiz } = useQuizStore();
+  const { playSound } = useSound();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const handleStart = () => {
+    if (isSoundOn) playSound("click");
+    initQuiz();
+  };
+
+  // サーバーレンダリング中、またはマウント前は「はじめる」で固定
+  const isActualMounted = mounted && !isServerRendering;
+  const buttonText =
+    isActualMounted && currentIndex > 0 ? "つづきから" : "はじめる";
+  const soundText = isActualMounted && !isSoundOn ? "なし" : "あり";
+
+  return (
+    <div className="fixed inset-0 bg-[#f8f1e7] flex flex-col items-center justify-between p-8 overflow-hidden">
+      <div className="absolute inset-0 z-0 opacity-[0.04] pointer-events-none">
+        <Image
+          src="/images/rewards/set1/L0.png"
+          alt=""
+          fill
+          className="object-cover"
+          priority
+        />
+      </div>
+
+      <div className="z-10 mt-16 text-center">
+        <h1 className="text-7xl font-serif font-black text-[#1e3a8a] tracking-tight mb-4 drop-shadow-sm">
+          父ちゃんクイズ
+        </h1>
+        <div className="inline-block px-5 py-1.5 border-t-2 border-b-2 border-[#1e3a8a]/20">
+          <p className="text-xl font-bold text-[#374151] tracking-[0.25em]">
+            〜ゆっくり、たのしく〜
+          </p>
+        </div>
+      </div>
+
+      <div className="z-10 w-full max-w-xs flex flex-col gap-8">
+        <div className="relative w-full">
+          <button
+            onClick={handleStart}
+            /* 💡 クラス名の改行を削除して1行に */
+            className="w-full py-10 bg-[#1e3a8a] text-[#fdfbf7] text-5xl font-black rounded-4xl shadow-[0_10px_0_rgb(12,28,68)] border-t border-white/10 active:translate-y-1.5 active:shadow-[0_4px_0_rgb(12,28,68)] transition-all duration-75 flex items-center justify-center"
+          >
+            {buttonText}
+          </button>
+        </div>
+        <p className="text-center text-[#374151]/60 font-black tracking-widest text-sm italic">
+          歴史と教養の百問
+        </p>
+      </div>
+
+      <div className="z-10 mb-8 w-full max-w-xs">
+        <div className="relative w-full">
+          <button
+            onClick={toggleSound}
+            /* 💡 ここも1行に */
+            className="w-full py-4 bg-white/60 text-[#1e3a8a] text-lg font-black rounded-full border-2 border-[#1e3a8a]/10 shadow-[0_4px_0_rgba(30,58,138,0.1)] active:translate-y-0.5 active:shadow-none flex items-center justify-center gap-4 transition-all duration-75"
+          >
+            <span className="text-3xl">
+              {isActualMounted && !isSoundOn ? "🔇" : "🔊"}
+            </span>
+            <span>音は {soundText}</span>
+          </button>
+        </div>
+      </div>
+
+      <div className="absolute top-6 left-6 w-16 h-16 border-t-4 border-l-4 border-[#1e3a8a]/5 rounded-tl-2xl" />
+      <div className="absolute bottom-6 right-6 w-16 h-16 border-b-4 border-r-4 border-[#1e3a8a]/5 rounded-br-2xl" />
+    </div>
+  );
+};
+--- src/components/quiz/EndingSequence.tsx ---
+"use client";
+
+import { useState, useEffect } from "react";
+import Image from "next/image";
+
+export const EndingSequence = ({ onRestart }: { onRestart: () => void }) => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => {
+        if (prev < 9) return prev + 1;
+        clearInterval(interval);
+        setTimeout(onRestart, 6000); // 最後は余韻を残してリスタートへ
+        return prev;
+      });
+    }, 4000); // 4秒ごとに次へ
+    return () => clearInterval(interval);
+  }, [onRestart]);
+
+  return (
+    <div className="fixed inset-0 bg-black z-100 flex items-center justify-center">
+      <div className="relative w-full h-full max-w-2xl">
+        {[...Array(10)].map((_, index) => (
+          <div
+            key={index}
+            className={`absolute inset-0 transition-opacity duration-2000 ease-in-out ${
+              index === currentImageIndex ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            <Image
+              src={`/images/rewards/set1/L${index}.png`}
+              alt="思い出"
+              fill
+              className="object-contain"
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+--- src/components/quiz/QuizView.tsx ---
+"use client";
+
+import { useEffect, useRef, useState } from "react"; // useStateを追加
+import { useQuizStore } from "@/store/useQuizStore";
+import { AnswerButton } from "@/components/quiz/AnswerButton";
+import { useSound } from "@/hooks/useSound";
+import { useSpeech } from "@/hooks/useSpeech";
+
+export const QuizView = () => {
+  const {
+    currentIndex,
+    shuffledChoices,
+    status,
+    questions,
+    isSoundOn,
+    toggleSound,
+    selectChoice,
+    proceed,
+    goBack,
+  } = useQuizStore();
+
+  const { playSound } = useSound();
+  const { speak, stop } = useSpeech();
+  const currentQuestion = questions[currentIndex];
+  const isTransitioning = useRef(false);
+
+  // --- 【新設】誤操作防止：マウント直後の操作をロック ---
+  const [isReady, setIsReady] = useState(false);
+  useEffect(() => {
+    const timer = setTimeout(() => setIsReady(true), 300); // 0.3秒のガード
+    return () => clearTimeout(timer);
+  }, [currentIndex]); // 問題が変わるたびにも一瞬ロックして安全性を高める
+
+  useEffect(() => {
+    return () => stop();
+  }, [stop]);
+
+  useEffect(() => {
+    stop();
+    isTransitioning.current = false;
+
+    if (status === "answering" && currentQuestion && isSoundOn) {
+      speak(currentQuestion.questionText);
+    }
+
+    if (status === "correct" && currentQuestion) {
+      if (isSoundOn) {
+        playSound("correct");
+        const speakTimer = setTimeout(() => {
+          speak(currentQuestion.explanation, () => {
+            if (!isTransitioning.current) {
+              isTransitioning.current = true;
+              setTimeout(() => proceed(), 1500);
+            }
+          });
+        }, 800);
+        return () => clearTimeout(speakTimer);
+      } else {
+        const autoTimer = setTimeout(() => {
+          if (!isTransitioning.current) {
+            isTransitioning.current = true;
+            proceed();
+          }
+        }, 5000);
+        return () => clearTimeout(autoTimer);
+      }
+    }
+
+    if (status === "incorrect") {
+      if (isSoundOn) playSound("incorrect");
+      const timer = setTimeout(() => proceed(), 2000);
+      return () => clearTimeout(timer);
+    }
+  }, [status, currentQuestion?.id, isSoundOn, speak, stop, playSound, proceed]);
+
+  const handleBackToTop = () => {
+    stop();
+    useQuizStore.setState({ status: "top" });
+  };
+
+  const handleManualNext = () => {
+    if (isTransitioning.current) return;
+    isTransitioning.current = true;
+    stop();
+    if (isSoundOn) playSound("click");
+    proceed();
+  };
+
+  if (!currentQuestion) return null;
+
+  return (
+    <div className="min-h-svh bg-[#f8f1e7] flex flex-col overflow-hidden">
+      <header className="flex items-center justify-between px-4 pt-4 z-10">
+        <button
+          onClick={handleBackToTop}
+          className="text-lg font-black text-[#1e3a8a]/70 bg-white/40 px-4 py-1.5 rounded-full"
+        >
+          🏠 もどる
+        </button>
+        <button
+          onClick={() => speak(currentQuestion.questionText)}
+          className="px-4 py-1.5 bg-white border border-[#1e3a8a]/20 rounded-full flex items-center gap-2 shadow-sm active:scale-95"
+        >
+          <span className="text-base">🔊</span>
+          <span className="text-sm font-bold text-[#1e3a8a]">よむ</span>
+        </button>
+        <button onClick={toggleSound} className="text-3xl p-1 opacity-70">
+          {isSoundOn ? "🔊" : "🔇"}
+        </button>
+      </header>
+
+      <main className="flex-1 flex flex-col items-center justify-center px-6">
+        {status === "answering" && (
+          <h1 className="text-[1.8rem] sm:text-4xl font-serif font-black text-[#1f2937] text-center leading-normal tracking-tight text-balance">
+            {currentQuestion.questionText}
+          </h1>
+        )}
+      </main>
+
+      <footer className="px-4 pb-10 z-10 w-full max-w-3xl mx-auto">
+        {status === "answering" && (
+          <>
+            <div className="grid grid-cols-2 gap-4">
+              {shuffledChoices.map((choice) => (
+                <AnswerButton
+                  key={choice.id}
+                  text={choice.text}
+                  onClick={() => {
+                    if (isSoundOn) playSound("click");
+                    selectChoice(choice.id);
+                  }}
+                  /* 💡 マウント直後はクリックを無効化して貫通を防ぐ */
+                  disabled={status !== "answering" || !isReady}
+                />
+              ))}
+            </div>
+
+            {/* 💡 復活：前の問題に戻るボタン */}
+            {currentIndex > 0 && (
+              <button
+                onClick={() => {
+                  stop();
+                  goBack();
+                }}
+                className="w-full text-center mt-6 text-[#1e3a8a]/40 font-bold text-sm py-2 active:opacity-60"
+              >
+                ← ひとつ前のもんだいに戻る
+              </button>
+            )}
+          </>
+        )}
+      </footer>
+
+      {/* 正解・不正解オーバーレイ ...（省略） */}
+      {status === "correct" && (
+        <div className="fixed inset-0 flex flex-col bg-[#f8f1e7]/98 z-50 animate-in fade-in duration-300">
+          <div className="flex-1 flex flex-col items-center justify-center p-6 overflow-y-auto">
+            <div className="text-[8rem] leading-none mb-2 text-[#e63946] drop-shadow-sm">
+              ⭕️
+            </div>
+            <div className="text-5xl font-black text-[#1e3a8a] mb-6">
+              あたり！
+            </div>
+            <div className="bg-white/80 p-8 rounded-5xl border-2 border-[#1e3a8a]/10 w-full shadow-sm">
+              <p className="text-2xl font-bold text-[#1f2937] leading-relaxed">
+                {currentQuestion.explanation}
+              </p>
+            </div>
+          </div>
+          <div className="p-10 w-full max-w-md mx-auto">
+            <button
+              onClick={handleManualNext}
+              className="w-full py-8 bg-[#1e3a8a] text-white text-4xl font-black rounded-5xl shadow-2xl active:scale-95 transition-transform"
+            >
+              つぎへ ➔
+            </button>
+          </div>
+        </div>
+      )}
+
+      {status === "incorrect" && (
+        <div className="fixed inset-0 flex items-center justify-center bg-[#1e3a8a] z-50 text-white p-8 animate-in zoom-in duration-200">
+          <div className="text-center">
+            <div className="text-[10rem] mb-6">❌</div>
+            <div className="text-5xl font-black leading-tight">
+              ちがいました
+              <br />
+              <span className="text-3xl opacity-80 font-bold">もう一度！</span>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+--- src/components/layout/MainLayout.tsx ---
+export const MainLayout = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col p-4 font-sans select-none">
+      {/* 画面上部：戻るボタンや進捗 */}
+      <header className="h-16 flex items-center justify-between">
+        {/* ここに「戻る」ボタンを配置予定 */}
+      </header>
+
+      {/* メインコンテンツ：問題と回答 */}
+      <main className="flex-1 flex flex-col justify-center max-w-2xl mx-auto w-full">
+        {children}
+      </main>
+    </div>
+  );
+};

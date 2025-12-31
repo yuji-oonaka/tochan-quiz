@@ -1,0 +1,102 @@
+--- src/app/page.tsx ---
+"use client";
+
+import { useEffect, useState } from "react";
+import { useQuizStore } from "@/store/useQuizStore";
+import { TopView } from "@/components/quiz/TopView";
+import { QuizView } from "@/components/quiz/QuizView";
+import { RewardOverlay } from "@/components/quiz/RewardOverlay";
+import { EndingSequence } from "@/components/quiz/EndingSequence";
+import { allQuestions } from "@/data/questions/allQuestions";
+
+export default function QuizPage() {
+  const { status, startQuiz, proceed, resetQuiz } = useQuizStore();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+    startQuiz(allQuestions);
+  }, [startQuiz]);
+
+  // 【重要】マウント完了までサーバーと同じ「TopView」を出し続け、
+  // クライアント側で準備ができたら初めて実際のステータス（続きから等）に切り替える
+  if (!mounted) {
+    return <TopView isServerRendering={true} />;
+  }
+
+  if (status === "top") return <TopView />;
+  if (status === "reward") return <RewardOverlay onNext={proceed} />;
+  if (status === "ending") return <EndingSequence onRestart={resetQuiz} />;
+
+  return <QuizView />;
+}
+--- src/app/layout.tsx ---
+import type { Metadata, Viewport } from "next";
+import "./globals.css";
+
+export const metadata: Metadata = {
+  title: "父ちゃんクイズ",
+  appleWebApp: {
+    capable: true, // ホーム画面に追加した時にアプリとして動く
+    statusBarStyle: "black-translucent",
+    title: "父ちゃんクイズ",
+  },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1, // 勝手にズームされるのを防ぐ
+  userScalable: false,
+  viewportFit: "cover", // 画面の端（ノッチ周り）まで使う設定
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="ja">
+      <body>{children}</body>
+    </html>
+  );
+}
+--- src/app/globals.css ---
+@import "tailwindcss";
+
+:root {
+  --background: #f8fafc;
+  /* 少し目に優しい薄いグレーに設定 */
+  --foreground: #1e293b;
+}
+
+/* iOS・モバイル向けの最適化設定 */
+@layer base {
+
+  html,
+  body {
+    /* 1. ダブルタップズームを禁止し、クリックの反応を最速(0秒)にする */
+    touch-action: manipulation;
+
+    /* 2. 長押しによる文字選択を禁止（お父様が混乱しないように） */
+    -webkit-user-select: none;
+    user-select: none;
+
+    /* 3. iPhoneの「セーフエリア（画面の端）」を考慮した余白 */
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+
+    /* 4. スクロールを禁止（画面がガタガタ動くのを防ぐ） */
+    overflow: hidden;
+
+    /* 5. 背景色とフォント */
+    background: var(--background);
+    color: var(--foreground);
+    font-family: Arial, "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", sans-serif;
+  }
+}
+
+/* ボタンが押された時のデフォルトのハイライト（青い影）を消す */
+* {
+  -webkit-tap-highlight-color: transparent;
+}

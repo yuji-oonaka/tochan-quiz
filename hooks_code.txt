@@ -1,0 +1,146 @@
+--- src/hooks/useSpeech.ts ---
+"use client";
+
+import { useCallback } from "react";
+
+// --- 読み上げ訂正辞書 ---
+// 今後、他にも誤読があった場合はここに追加するだけで直ります
+const PRONUNCIATION_MAP: Record<string, string> = {
+  // --- 戦国・歴史 ---
+  "豊臣秀吉": "とよとみひでよし",
+  "今川義元": "いまがわよしもと",
+  "武田信玄": "たけだしんげん",
+  "上杉謙信": "うえすぎけんしん",
+  "足利義昭": "あしかがよしあき",
+  "徳川家康": "とくがわいえやす",
+  "徳川家光": "とくがわいえみつ",
+  "徳川慶喜": "とくがわよしのぶ",
+  "明智光秀": "あけちみつひで",
+  "真田幸村": "さなだゆきむら",
+  "真田信繁": "さなだのぶしげ", // 幸村の別名
+  "毛利元就": "もうりもとなり",
+  "伊達政宗": "だてまさむね",
+  "柴田勝家": "しばたかついえ",
+  "石田三成": "いしだみつなり",
+  "小早川秀秋": "こばやかわひであき",
+  "本多忠勝": "ほんだただかつ",
+  "黒田官兵衛": "くろだかんべえ",
+  "竹中半兵衛": "たけなかはんべえ",
+  "葛飾北斎": "かつしかほくさい",
+  "天草四郎": "あまくさしろう",
+  "桶狭間": "おけはざま",
+  "関ヶ原": "せきがはら",
+  "川中島": "かわなかじま",
+  "墨俣": "すのまた",
+  "三献茶": "さんこんちゃ",
+  "征夷大将軍": "せいいたいしょうぐん",
+  "大政奉還": "たいせいほうかん",
+  "楽市・楽座": "らくいち・らくざ",
+  "三日天下": "みっかてんか",
+  "真田丸": "さなだまる",
+  "出島": "でじま",
+  "独眼竜": "どぐがんりゅう",
+  "日本一の兵": "ひのもといちのつわもの",
+  "赤備": "あかぞなえ",
+  "孫氏の兵法": "そんしのへいほう",
+  "風林火山": "ふうりんかざん",
+
+  
+  
+
+  // --- 地名・名産 ---
+  "焼津": "やいづ",
+  "鯖江": "さばえ",
+  "今治": "いまばり",
+  "与那国島": "よなぐにじま",
+  "瀬田の唐橋": "せたのからはし",
+  "蒼社川": "そうじゃがわ",
+  "夕張": "ゆうばり",
+  "稚内": "わっかない",
+  "信濃川": "しなのがわ",
+  "利根川": "とねがわ",
+  "駿河湾": "するがわん",
+
+  // --- スポーツ・その他 ---
+  "王貞治": "おうさだはる",
+  "長嶋茂雄": "ながしましげお",
+  "金田正一": "かねだまさいち",
+  "野村克也": "のむらかつや",
+  "張本勲": "はりもといさお",
+  "一本足打法": "いっぽんあしだほう",
+  "坂東太郎": "ばんどうたろう",
+};
+
+export const useSpeech = () => {
+  const stop = useCallback(() => {
+    if (typeof window !== "undefined" && window.speechSynthesis) {
+      window.speechSynthesis.cancel();
+    }
+  }, []);
+
+  const speak = useCallback((text: string, onEnd?: () => void) => {
+    if (typeof window === "undefined" || !window.speechSynthesis) {
+      onEnd?.();
+      return;
+    }
+
+    window.speechSynthesis.cancel();
+
+    let spokenText = text;
+    Object.entries(PRONUNCIATION_MAP).forEach(([kanji, kana]) => {
+      spokenText = spokenText.split(kanji).join(kana);
+    });
+
+    const uttr = new SpeechSynthesisUtterance(spokenText);
+    
+    // --- 音質とトーンの設定 ---
+    const voices = window.speechSynthesis.getVoices();
+    
+    // iOS/Safariで最も落ち着いて聞こえる「Kyoko」や、高品質な日本語音声を探す
+    const japaneseVoice = voices.find(v => 
+      (v.name.includes("Kyoko") || v.name.includes("Siri")) && v.lang === "ja-JP"
+    ) || voices.find(v => v.lang === "ja-JP");
+
+    if (japaneseVoice) {
+      uttr.voice = japaneseVoice;
+    }
+
+    uttr.lang = "ja-JP";
+    
+    // お父様が焦らず、かつ間延びしない「一般スピード」
+    uttr.rate = 0.9;   // 1.0が標準ですが、0.9にすると「落ち着いた丁寧な口調」になります 
+    uttr.pitch = 1.0;  // 高すぎず低すぎない自然な高さ
+
+    uttr.onend = () => {
+      if (onEnd) onEnd();
+    };
+
+    // フリーズ防止用タイマー
+    const timeoutId = setTimeout(() => {
+      if (onEnd) onEnd();
+    }, 15000);
+
+    const originalOnEnd = uttr.onend;
+    uttr.onend = (e) => {
+      clearTimeout(timeoutId);
+      originalOnEnd?.call(uttr, e);
+    };
+
+    window.speechSynthesis.speak(uttr);
+  }, []);
+
+  return { speak, stop };
+};--- src/hooks/useSound.ts ---
+"use client";
+
+export const useSound = () => {
+  const playSound = (type: 'correct' | 'incorrect' | 'click') => {
+    // 実際のファイルパス（public/sounds/フォルダに配置想定）
+    const audio = new Audio(`/sounds/${type}.mp3`);
+    audio.play().catch(() => {
+      /* ユーザー操作前の再生エラー防止 */
+    });
+  };
+
+  return { playSound };
+};
