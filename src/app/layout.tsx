@@ -1,21 +1,28 @@
-import type { Metadata, Viewport } from "next";
-import "./globals.css";
+// src/app/layout.tsx
+
+import { Metadata, Viewport } from "next";
+
+export const viewport: Viewport = {
+  themeColor: "#1e3a8a",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false, // お父様が誤操作でズームしないように固定
+};
 
 export const metadata: Metadata = {
   title: "父ちゃんクイズ",
+  description: "ゆっくり、たのしく学ぶ歴史と教養の百問",
+  manifest: "/manifest.json",
   appleWebApp: {
-    capable: true, // ホーム画面に追加した時にアプリとして動く
-    statusBarStyle: "black-translucent",
+    capable: true,
+    statusBarStyle: "default",
     title: "父ちゃんクイズ",
   },
-};
-
-export const viewport: Viewport = {
-  width: "device-width",
-  initialScale: 1,
-  maximumScale: 1, // 勝手にズームされるのを防ぐ
-  userScalable: false,
-  viewportFit: "cover", // 画面の端（ノッチ周り）まで使う設定
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-icon.png", // apple-touch-icon
+  },
 };
 
 export default function RootLayout({
