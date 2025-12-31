@@ -24,6 +24,7 @@ export const QuizView = () => {
   const { playSound } = useSound();
   const { speak, stop } = useSpeech();
   const currentQuestion = questions[currentIndex];
+  const setIndex = Math.floor(currentIndex / 10);
   const isTransitioning = useRef(false);
 
   const [isReady, setIsReady] = useState(false);
@@ -35,27 +36,6 @@ export const QuizView = () => {
   useEffect(() => {
     return () => stop();
   }, [stop]);
-
-  // --- 【ラグ対策】ご褒美画像のプリロード ---
-  useEffect(() => {
-    const progressInSet = currentIndex % 10;
-
-    // 7問目以降になったら、そのセットの報酬画像を先読みしておく
-    if (progressInSet >= 7) {
-      const setNumber = Math.floor(currentIndex / 10) + 1;
-      // 画像は 0〜9 のいずれか（ロジックに合わせて調整してください）
-      // ここでは現在のセットに対応する画像を念のためすべて、あるいは特定のものをロード
-      const imageUrls = [
-        `/images/rewards/set${setNumber}/L${setNumber - 1}.png`,
-        // セット数とファイル名が連動している場合
-      ];
-
-      imageUrls.forEach((url) => {
-        const img = new Image();
-        img.src = url;
-      });
-    }
-  }, [currentIndex]);
 
   useEffect(() => {
     isTransitioning.current = false;
@@ -124,13 +104,37 @@ export const QuizView = () => {
     isTransitioning.current = true;
     stop();
     if (isSoundOn) playSound("click");
-    proceed();
+
+    // 10問解き終わったタイミング（currentIndex % 10 === 9）の時だけ
+    // 200msの「タメ」を作ってから proceed を呼ぶ
+    if (currentIndex % 10 === 9) {
+      setTimeout(() => {
+        proceed();
+      }, 200);
+    } else {
+      proceed();
+    }
   };
 
   if (!currentQuestion) return null;
 
   return (
     <div className="min-h-svh bg-[#f8f1e7] flex flex-col items-center overflow-x-hidden">
+      {/* ★追加：最強のラグ対策（隠しDOMによる先行レンダリング） */}
+      <div
+        className="hidden"
+        aria-hidden="true"
+        style={{ width: 0, height: 0, overflow: "hidden" }}
+      >
+        {currentIndex % 10 >= 7 && (
+          <img
+            src={`/images/rewards/set${setIndex + 1}/L${setIndex}.png`}
+            alt=""
+            loading="eager"
+            decoding="async"
+          />
+        )}
+      </div>
       <div className="w-full max-w-2xl flex flex-col flex-1 h-full shadow-sm bg-[#f8f1e7]">
         <header className="px-4 pt-4 z-10 space-y-4">
           <div className="flex items-center justify-between">
