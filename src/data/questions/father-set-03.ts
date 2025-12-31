@@ -6,7 +6,7 @@ export const fatherSet03: Question[] = [
     questionText: "『急がば回れ』という言葉の語源となったのは、滋賀県にある何という場所を渡るルートのこと？",
     choices: [
       { id: "a", text: "天橋立", isCorrect: false },
-      { id: "b", text: "瀬田の唐橋（せたのからはし）", isCorrect: true },
+      { id: "b", text: "瀬田の唐橋", isCorrect: true },
       { id: "c", text: "錦帯橋", isCorrect: false },
       { id: "d", text: "日本橋", isCorrect: false },
     ],

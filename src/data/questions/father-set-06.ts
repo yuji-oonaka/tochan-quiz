@@ -36,7 +36,7 @@ export const fatherSet06: Question[] = [
   },
   {
     id: "s6-54",
-    questionText: "織田信長の家臣で「鬼柴田（おにしばた）」と恐れられ、北陸地方の攻略を任された猛将は誰？",
+    questionText: "織田信長の家臣で「鬼柴田」と恐れられ、北陸地方の攻略を任された猛将は誰？",
     choices: [
       { id: "a", text: "柴田 勝家", isCorrect: true }, // 正解：a
       { id: "b", text: "明智 光秀", isCorrect: false },
@@ -47,7 +47,7 @@ export const fatherSet06: Question[] = [
   },
   {
     id: "s6-55",
-    questionText: "伊達政宗のトレードマークである兜（かぶと）には、どのような形の飾りがついているでしょうか？",
+    questionText: "伊達政宗のトレードマークである兜には、どのような形の飾りがついているでしょうか？",
     choices: [
       { id: "a", text: "大きな星", isCorrect: false },
       { id: "b", text: "角", isCorrect: false },
@@ -76,7 +76,7 @@ export const fatherSet06: Question[] = [
       { id: "c", text: "鳥居 元忠", isCorrect: false },
       { id: "d", text: "大久保 彦左衛門", isCorrect: false },
     ],
-    explanation: "大きな鹿の角がついた兜をかぶり、「蜻蛉切（とんぼぎり）」という名槍を振るった無双の猛将です。"
+    explanation: "大きな鹿の角がついた兜をかぶり、「蜻蛉切」という名槍を振るった無双の猛将です。"
   },
   {
     id: "s6-58",
@@ -109,6 +109,6 @@ export const fatherSet06: Question[] = [
       { id: "c", text: "小田原城", isCorrect: true }, // 正解：c
       { id: "d", text: "松本城", isCorrect: false },
     ],
-    explanation: "町全体を大きな堀で囲んだ「総構え（そうがまえ）」という巨大な防衛システムを持っていました。"
+    explanation: "町全体を大きな堀で囲んだ「総構え」という巨大な防衛システムを持っていました。"
   },
 ];

@@ -27,10 +27,9 @@ export const TopView = ({ isServerRendering = false }: TopViewProps) => {
 
   // 進捗をリセットする処理
   const handleReset = () => {
-    // お父様が誤って触れてしまった時のための確認
-    if (confirm("これまでの進捗を消して、最初からやり直しますか？")) {
-      resetAllData();
-      // 念のため画面をリロードして状態を確実に初期化します
+    if (confirm("これまでの進捗を消して、一番最初の問題からやり直しますか？")) {
+      resetAllData(); // これで isShuffled が false になります
+      // 画面をリロードすることで startQuiz が走り、正しい順番（Set01〜）が読み込まれます
       window.location.reload();
     }
   };

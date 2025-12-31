@@ -32,7 +32,7 @@ export const fatherSet01: Question[] = [
       { id: "c", text: "侵略すること、火の如く", isCorrect: true },
       { id: "d", text: "敵を照らすこと、火の如く", isCorrect: false },
     ],
-    explanation: "「疾きこと風の如く、徐かなること林の如く、侵掠（しんりゃく）すること火の如く、動かざること山の如し」の一節です。"
+    explanation: "「疾きこと風の如く、徐かなること林の如く、侵掠すること火の如く、動かざること山の如し」の一節です。"
   },
   {
     id: "s1-4",

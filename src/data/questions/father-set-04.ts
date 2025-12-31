@@ -47,7 +47,7 @@ export const fatherSet04: Question[] = [
   },
   {
     id: "f4-35",
-    questionText: "江戸前寿司（えどまえずし）の「江戸前」とは、本来どのような意味？",
+    questionText: "江戸前寿司の「江戸前」とは、本来どのような意味？",
     choices: [
       { id: "a", text: "江戸の目の前の海で獲れた", isCorrect: true },
       { id: "b", text: "江戸時代より前に生まれた", isCorrect: false },
