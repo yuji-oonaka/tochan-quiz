@@ -37,13 +37,13 @@ export const fatherSet03: Question[] = [
       { id: "c", text: "三味線弾き", speech: "しゃみせん ひき", isCorrect: true },
       { id: "d", text: "魚屋", speech: "さかなや", isCorrect: false },
     ],
-    explanation: "三味線の皮に猫の皮が必要になり、猫が減るとネズミが増え、桶がかじられる……という風筋の通った（？）論理です。",
-    explanationSpeech: "しゃみせん の かわ に ねこ の かわ が ひつよう に なり、ねこ が へる と ねずみ が ふえ、おけ が かじられる、という ふうすじ の とおった ろんり です。"
+    explanation: "三味線の皮に猫の皮が必要になり、猫が減るとネズミが増え、桶がかじられる……という風説の通った（？）論理です。",
+    explanationSpeech: "しゃみせん の かわ に ねこ の かわ が ひつよう に なり、ねこ が へる と ねずみ が ふえ、おけ が かじられる、という ふうせつ の とおった ろんり です。"
   },
   {
     id: "k3-24",
     questionText: "『あばたもえくぼ』という言葉。「あばた」とは、本来どのような状態を指す言葉？",
-    questionSpeech: "あばた も えくぼ と いう ことば。あばた とは、ほんらい どのようあ じょうたい を さす ことば？",
+    questionSpeech: "あばた も えくぼ と いう ことば。あばた とは、ほんらい どのような じょうたい を さす ことば？",
     choices: [
       { id: "a", text: "天然痘などの治りあとの凹み", speech: "てんねんとう など の なおりあと の へこみ", isCorrect: true },
       { id: "b", text: "日焼けした肌", speech: "ひやけ した はだ", isCorrect: false },

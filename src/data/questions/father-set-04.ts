@@ -56,7 +56,7 @@ export const fatherSet04: Question[] = [
   {
     id: "f4-35",
     questionText: "江戸前寿司の「江戸前」とは、本来どのような意味？",
-    questionSpeech: "えどまえ ずし の えどまえ とは、ほんらい どのようあ いみ？",
+    questionSpeech: "えどまえ ずし の えどまえ とは、ほんらい どのような いみ？",
     choices: [
       { id: "a", text: "江戸の目の前の海で獲れた", speech: "えど の めのまえ の うみ で とれた", isCorrect: true },
       { id: "b", text: "江戸時代より前に生まれた", speech: "えどじだい より まえ に うまれた", isCorrect: false },
@@ -116,12 +116,12 @@ export const fatherSet04: Question[] = [
       { id: "d", text: "銀杏の葉", speech: "いちょう の は", isCorrect: false },
     ],
     explanation: "笹には殺菌作用があるため保存食の役割を果たし、さらに爽やかな香りを寿司に移してくれます。",
-    explanationSpeech: "ささ には さつきん さよう が ある ため、ほぞんしょく の やくわり を はたし、さらに さわやかな かおり を すし に うつして くれます。"
+    explanationSpeech: "ささ には さっきん さよう が ある ため、ほぞんしょく の やくわり を はたし、さらに さわやかな かおり を すし に うつして くれます。"
   },
   {
     id: "f4-40",
     questionText: "名古屋の名物「ひつまぶし」。最後の一杯は、どのような食べ方をするのが一般的？",
-    questionSpeech: "なごや の めいぶつ ひつまぶし。さいご の いっぱい は、どのようあ たべかた を する のが いっぱんてき？",
+    questionSpeech: "なごや の めいぶつ ひつまぶし。さいご の いっぱい は、どのような たべかた を する のが いっぱんてき？",
     choices: [
       { id: "a", text: "マヨネーズをかける", speech: "まよねーず を かける", isCorrect: false },
       { id: "b", text: "お茶や出汁をかける", speech: "おちゃ や だし を かける", isCorrect: true },
