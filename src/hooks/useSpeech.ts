@@ -1,8 +1,13 @@
 "use client";
 
 import { useCallback, useRef } from "react";
-import { PRONUNCIATION_MAP } from "@/data/pronunciationDictionary";
 
+/**
+ * 【修正のポイント】
+ * 1. 外部辞書（PRONUNCIATION_MAP）への依存を削除
+ * 2. 渡されたテキスト（読み上げ用テキスト）をそのまま読み上げる
+ * 3. iPhoneでの安定性のためのRef管理とCancelロジックは維持
+ */
 export const useSpeech = () => {
   const utteranceRef = useRef<SpeechSynthesisUtterance | null>(null);
   const lastText = useRef<string>("");
@@ -10,7 +15,6 @@ export const useSpeech = () => {
 
   const stop = useCallback(() => {
     if (typeof window !== "undefined" && window.speechSynthesis) {
-      // ★重要：読み上げを止める前に、終了後の予約イベントを完全に消去する
       if (utteranceRef.current) {
         utteranceRef.current.onend = null;
         utteranceRef.current.onerror = null;
@@ -26,23 +30,20 @@ export const useSpeech = () => {
       return;
     }
 
+    // 短時間の重複リクエストをガード
     const now = Date.now();
     if (text === lastText.current && now - lastTime.current < 500) return;
     lastText.current = text;
     lastTime.current = now;
 
-    // 前の読み上げを止める（ここでもonendを無効化しておく）
+    // 前の読み上げを強制終了
     if (utteranceRef.current) {
       utteranceRef.current.onend = null;
     }
     window.speechSynthesis.cancel();
 
-    let spokenText = text;
-    Object.entries(PRONUNCIATION_MAP).forEach(([kanji, kana]) => {
-      spokenText = spokenText.split(kanji).join(kana);
-    });
-
-    const uttr = new SpeechSynthesisUtterance(spokenText);
+    // ★修正：辞書置換を行わず、渡されたテキスト（読み上げ専用データ）をそのまま使う
+    const uttr = new SpeechSynthesisUtterance(text);
     utteranceRef.current = uttr; 
 
     const voices = window.speechSynthesis.getVoices();
@@ -52,15 +53,16 @@ export const useSpeech = () => {
 
     if (japaneseVoice) uttr.voice = japaneseVoice;
     uttr.lang = "ja-JP";
-    uttr.rate = 0.9;
+    uttr.rate = 0.9; // お父様に合わせて少しゆっくり
     uttr.pitch = 1.0;
 
+    // 終了時の処理
     uttr.onend = () => {
       utteranceRef.current = null;
       if (onEnd) onEnd();
     };
 
-    // タイムアウト監視（念のためのセーフティ）
+    // セーフティタイマー（iPhone等で稀にonendが発火しない現象への対策）
     const timeoutId = setTimeout(() => {
       if (utteranceRef.current === uttr) {
         uttr.onend?.(new SpeechSynthesisEvent("end", { utterance: uttr }));

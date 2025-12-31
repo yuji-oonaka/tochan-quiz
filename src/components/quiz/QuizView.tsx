@@ -38,16 +38,23 @@ export const QuizView = () => {
 
   useEffect(() => {
     isTransitioning.current = false;
+    
+    // --- 【修正】問題文の読み上げロジック ---
     if (status === "answering" && currentQuestion && isSoundOn) {
-      const timer = setTimeout(() => speak(currentQuestion.questionText), 100);
+      // よみがな用プロパティがあればそれを優先する
+      const textToSpeak = currentQuestion.questionSpeech ?? currentQuestion.questionText;
+      const timer = setTimeout(() => speak(textToSpeak), 100);
       return () => clearTimeout(timer);
     }
 
     if (status === "correct" && currentQuestion) {
       if (isSoundOn) {
         playSound("correct");
+        
+        // --- 【修正】解説の読み上げロジック ---
+        const explanationToSpeak = currentQuestion.explanationSpeech ?? currentQuestion.explanation;
         const speakTimer = setTimeout(() => {
-          speak(currentQuestion.explanation, () => {
+          speak(explanationToSpeak, () => {
             if (!isTransitioning.current) {
               isTransitioning.current = true;
               setTimeout(() => proceed(), 1500);
@@ -81,8 +88,6 @@ export const QuizView = () => {
     retryQuestion,
   ]);
 
-  // --- 【重要】進捗計算の修正：現在の問題番号(currentIndex)に完全にリンクさせる ---
-  // これにより「戻る」を押しても、その問題に応じたバーの状態に正しく戻ります
   const progressInSet = currentIndex % 10;
   const remaining = 10 - progressInSet;
 
@@ -103,9 +108,7 @@ export const QuizView = () => {
 
   return (
     <div className="min-h-svh bg-[#f8f1e7] flex flex-col items-center overflow-x-hidden">
-      {/* PC・タブレットでの広がりすぎを防ぐコンテナ */}
       <div className="w-full max-w-2xl flex flex-col flex-1 h-full shadow-sm bg-[#f8f1e7]">
-        {/* ヘッダー：2段構成 */}
         <header className="px-4 pt-4 z-10 space-y-4">
           <div className="flex items-center justify-between">
             <button
@@ -115,7 +118,11 @@ export const QuizView = () => {
               🏠 もどる
             </button>
             <button
-              onClick={() => speak(currentQuestion.questionText)}
+              onClick={() =>
+                speak(
+                  currentQuestion.questionSpeech ?? currentQuestion.questionText
+                )
+              }
               className="px-4 py-1.5 bg-white border border-[#1e3a8a]/20 rounded-full flex items-center gap-2 shadow-sm active:scale-95"
             >
               <span className="text-base">🔊</span>
@@ -126,7 +133,6 @@ export const QuizView = () => {
             </button>
           </div>
 
-          {/* 進捗バー：問題番号に連動 */}
           <div className="flex flex-col items-center gap-2">
             <div className="flex gap-1 sm:gap-1.5">
               {[...Array(10)].map((_, i) => (
@@ -163,7 +169,12 @@ export const QuizView = () => {
                     key={choice.id}
                     text={choice.text}
                     onClick={() => {
+                      // 1. クリック音は鳴らす
                       if (isSoundOn) playSound("click");
+
+                      // 2. 【削除】選択肢の読み上げ(speak)は行わない
+
+                      // 3. 選択処理へ進む
                       selectChoice(choice.id);
                     }}
                     disabled={status !== "answering" || !isReady}
@@ -186,12 +197,10 @@ export const QuizView = () => {
         </footer>
       </div>
 
-      {/* --- 正解オーバーレイ：⭕️を小さくして「文字」を主役にする --- */}
       {status === "correct" && (
         <div className="fixed inset-0 z-50 flex justify-center items-center bg-[#f8f1e7]/98 px-6">
           <div className="w-full max-w-md h-full flex flex-col justify-between py-10">
             <div className="flex-1 flex flex-col items-center justify-center">
-              {/* ★ アイコンを小さくして、下の解説文のスペースを空ける */}
               <div className="text-[5rem] leading-none mb-1 text-[#e63946]">
                 ⭕️
               </div>
@@ -205,10 +214,7 @@ export const QuizView = () => {
               </div>
             </div>
             <button
-              onClick={() => {
-                playSound("click");
-                proceed();
-              }}
+              onClick={handleManualNext}
               className="w-full py-7 bg-[#1e3a8a] text-white text-3xl font-black rounded-full shadow-xl"
             >
               つぎへ ➔
@@ -217,7 +223,6 @@ export const QuizView = () => {
         </div>
       )}
 
-      {/* 不正解オーバーレイ：こちらもシンプルに */}
       {status === "incorrect" && (
         <div className="fixed inset-0 flex items-center justify-center bg-[#1e3a8a] z-50 text-white p-8 animate-in zoom-in duration-200">
           <div className="text-center">
