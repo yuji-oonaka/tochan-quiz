@@ -1,31 +1,31 @@
-// src/app/layout.tsx
-
-import { Metadata, Viewport } from "next";
-
-export const viewport: Viewport = {
-  themeColor: "#1e3a8a",
-  width: "device-width",
-  initialScale: 1,
-  maximumScale: 1,
-  userScalable: false, // お父様が誤操作でズームしないように固定
-};
+import type { Metadata, Viewport } from "next";
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "父ちゃんクイズ",
   description: "ゆっくり、たのしく学ぶ歴史と教養の百問",
-  manifest: "/manifest.json",
+  manifest: "/manifest.json", // PWA用の設定ファイル
   appleWebApp: {
-    capable: true,
-    statusBarStyle: "default",
+    capable: true, // ホーム画面に追加した時にアプリとして動く
+    statusBarStyle: "black-translucent",
     title: "父ちゃんクイズ",
   },
   icons: {
     icon: [
-      { url: "/favicon.ico" }, // 標準
-      { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" }, // ★追加
+      { url: "/favicon.ico" },
+      { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" },
     ],
-    apple: "/apple-icon.png",
+    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
   },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1, // 勝手にズームされるのを防ぐ
+  userScalable: false,
+  viewportFit: "cover", // 画面の端（ノッチ周り）まで使う設定
+  themeColor: "#1e3a8a", // ブラウザのテーマカラー
 };
 
 export default function RootLayout({
@@ -35,7 +35,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja">
-      <body>{children}</body>
+      <body className="antialiased">{children}</body>
     </html>
   );
 }
