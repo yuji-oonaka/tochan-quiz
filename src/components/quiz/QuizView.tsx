@@ -36,13 +36,35 @@ export const QuizView = () => {
     return () => stop();
   }, [stop]);
 
+  // --- 【ラグ対策】ご褒美画像のプリロード ---
+  useEffect(() => {
+    const progressInSet = currentIndex % 10;
+
+    // 7問目以降になったら、そのセットの報酬画像を先読みしておく
+    if (progressInSet >= 7) {
+      const setNumber = Math.floor(currentIndex / 10) + 1;
+      // 画像は 0〜9 のいずれか（ロジックに合わせて調整してください）
+      // ここでは現在のセットに対応する画像を念のためすべて、あるいは特定のものをロード
+      const imageUrls = [
+        `/images/rewards/set${setNumber}/L${setNumber - 1}.png`,
+        // セット数とファイル名が連動している場合
+      ];
+
+      imageUrls.forEach((url) => {
+        const img = new Image();
+        img.src = url;
+      });
+    }
+  }, [currentIndex]);
+
   useEffect(() => {
     isTransitioning.current = false;
-    
+
     // --- 【修正】問題文の読み上げロジック ---
     if (status === "answering" && currentQuestion && isSoundOn) {
       // よみがな用プロパティがあればそれを優先する
-      const textToSpeak = currentQuestion.questionSpeech ?? currentQuestion.questionText;
+      const textToSpeak =
+        currentQuestion.questionSpeech ?? currentQuestion.questionText;
       const timer = setTimeout(() => speak(textToSpeak), 100);
       return () => clearTimeout(timer);
     }
@@ -50,9 +72,10 @@ export const QuizView = () => {
     if (status === "correct" && currentQuestion) {
       if (isSoundOn) {
         playSound("correct");
-        
+
         // --- 【修正】解説の読み上げロジック ---
-        const explanationToSpeak = currentQuestion.explanationSpeech ?? currentQuestion.explanation;
+        const explanationToSpeak =
+          currentQuestion.explanationSpeech ?? currentQuestion.explanation;
         const speakTimer = setTimeout(() => {
           speak(explanationToSpeak, () => {
             if (!isTransitioning.current) {
