@@ -1,5 +1,8 @@
 # 父ちゃんクイズ (Father Quiz)
 
+https://tochan-quiz.vercel.app/
+<img width="400" height="400" alt="Gemini_Generated_Image_psq4a1psq4a1psq4" src="https://github.com/user-attachments/assets/43baa26d-7a59-4ce7-91b4-c1808c37b820" />
+
 お父様が歴史や教養を「ゆっくり、たのしく」学べるように設計された、Next.jsベースのクイズアプリケーションです。
 
 ## 🌟 特徴
